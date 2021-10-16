@@ -13,9 +13,9 @@ namespace IPM_Project.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Stage1()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Stage 1 - Project Proposal";
 
             return View();
         }

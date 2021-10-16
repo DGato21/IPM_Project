@@ -132,12 +132,23 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="files\Stage1_prints\Stage1_Page1.PNG" />
+    <Content Include="files\Stage1_prints\Stage1_Page2.PNG" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="files\Stage 1 - União Zoófila.docx" />
+    <Content Include="_stage1\Stage 1 - União Zoófila.htm" />
+    <Content Include="_stage1\Stage 1 - União Zoófila_ficheiros\colorschememapping.xml" />
+    <Content Include="_stage1\Stage 1 - União Zoófila_ficheiros\filelist.xml" />
+    <Content Include="_stage1\Stage 1 - União Zoófila_ficheiros\header.htm" />
+    <Content Include="_stage1\Stage 1 - União Zoófila_ficheiros\image001.png" />
+    <Content Include="_stage1\Stage 1 - União Zoófila_ficheiros\image002.png" />
+    <Content Include="_stage1\Stage 1 - União Zoófila_ficheiros\image003.png" />
+    <Content Include="_stage1\Stage 1 - União Zoófila_ficheiros\image004.jpg" />
+    <Content Include="_stage1\Stage 1 - União Zoófila_ficheiros\image005.jpg" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -160,9 +171,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Stage1.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="_stage1\Stage 1 - União Zoófila_ficheiros\themedata.thmx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
