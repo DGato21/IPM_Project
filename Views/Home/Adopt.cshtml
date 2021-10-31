@@ -1,18 +1,40 @@
-﻿<h2>@ViewBag.Title.</h2>
+﻿@model IPM_Project.Models.Dog
 
+<h2>@ViewBag.Title.</h2>
 
-<form id="SearchForm" method="post" enctype="application/x-www-form-urlencoded">
-    <input id="SearchBar" type="text" />
-    <br />
-    <input type="text" id="Filter1" list="DogCategory" />
-    <datalist id="DogCategory">
-        <option>Small</option>
-        <option>Medium</option>
-        <option>High</option>
-    </datalist>
+@using (Html.BeginForm("SearchAllDogs", "Data", FormMethod.Post))
+{
+    <div class="row">
+        @Html.Label("Name:")
+        @Html.TextBoxFor(m => m.Name)
 
-    <input type="submit" value="Submit" />
-    @Html.ActionLink("Submit", "SearchAllDogs", "Data")
+        <input type="submit" value="Submit" />
+    </div>
 
-</form>
+    <div class="row">
+        <div class="col-md-4">
+            @Html.Label("Category:")
+            @Html.DropDownListFor(m => m.Category, new List<SelectListItem>()
+                {
+                    new SelectListItem{Text = "Big", Value = "BIG" },
+                    new SelectListItem{Text = "Medium", Value = "MEDIUM" },
+                    new SelectListItem{Text = "Small", Value = "SMALL" }
+                }, "Please Select Dog Size");
+        </div>
+
+        <div class="col-md-4">
+            @Html.Label("Adopted:")
+            @Html.CheckBox("Adopted")
+        </div>
+
+        <div class="col-md-4">
+            @Html.Label("Gender:")
+            @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>()
+                {
+                    new SelectListItem{Text = "Male", Value = "M" },
+                    new SelectListItem{Text = "Female", Value = "F" },
+                }, "Please Select the Gender");
+        </div>
+    </div>
+}
 

@@ -7,24 +7,37 @@ namespace IPM_Project.Models
 {
     public class Dog
     {
-        public Dog (int id, string name, string category, string sex, int age, int likes, bool isAdopted)
+        public static Dictionary<string, string> CATEGORIES = new Dictionary<string, string>()
+        {
+            {"BIG", "Big"},
+            {"MEDIUM", "Medium"},
+            {"SMALL", "Small"}
+        };
+
+        public static Dictionary<string, string> GENDER = new Dictionary<string, string>()
+        {
+            {"F", "Female"},
+            {"M", "Male"}
+        };
+
+        public Dog (int id, string name, string category, string gender, int age, int likes, bool isAdopted)
         {
             this.Id = id;
             this.Name = name;
             this.Category = category;
-            this.Sex = sex;
+            this.Gender = gender;
             this.Age = age;
             this.Likes = likes;
             this.isAdopted = isAdopted;
             this.Figures = new List<string>();
         }
 
-        public Dog(int id, string name, string category, string sex)
+        public Dog(int id, string name, string category, string gender)
         {
             this.Id = id;
             this.Name = name;
             this.Category = category;
-            this.Sex = sex;
+            this.Gender = gender;
             //Default Info
             this.Age = 0;
             this.Likes = 0;
@@ -35,7 +48,7 @@ namespace IPM_Project.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Category { get; set; }
-        public string Sex { get; set; }
+        public string Gender { get; set; }
         public int Age { get; set; }
 
         //Specific Dog Info
@@ -44,18 +57,5 @@ namespace IPM_Project.Models
         public bool isAdopted { get; set; } = false;
 
         public List<string> Figures { get; set; } = new List<string>();
-    }
-
-    public enum DOGS_CATEGORIES
-    {
-        BIG,
-        MEDIUM,
-        SMALL
-    }
-
-    public enum DOG_SEX
-    {
-        FEMALE,
-        MALE
     }
 }
