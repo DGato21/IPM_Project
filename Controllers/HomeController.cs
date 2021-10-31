@@ -10,19 +10,21 @@ namespace IPM_Project.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Title = "Home Page";
+
             return View();
         }
 
         public ActionResult Stage1()
         {
-            ViewBag.Message = "Stage 1 - Project Proposal";
+            ViewBag.Title = "Stage 1 - Project Proposal";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Adopt()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Title = "Adopt a Dog Page.";
 
             return View();
         }

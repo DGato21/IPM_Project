@@ -1,0 +1,18 @@
+﻿<h2>@ViewBag.Title.</h2>
+
+
+<form id="SearchForm" method="post" enctype="application/x-www-form-urlencoded">
+    <input id="SearchBar" type="text" />
+    <br />
+    <input type="text" id="Filter1" list="DogCategory" />
+    <datalist id="DogCategory">
+        <option>Small</option>
+        <option>Medium</option>
+        <option>High</option>
+    </datalist>
+
+    <input type="submit" value="Submit" />
+    @Html.ActionLink("Submit", "SearchAllDogs", "Data")
+
+</form>
+
