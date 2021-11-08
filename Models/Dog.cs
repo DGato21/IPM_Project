@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -45,15 +46,28 @@ namespace IPM_Project.Models
             this.Figures = new List<string>();
         }
 
+        [JsonConstructor()]
+        public Dog()
+        {
+
+        }
+
+        [JsonProperty("id")]
         public int Id { get; set; }
+        [JsonProperty("name")]
         public string Name { get; set; }
+        [JsonProperty("category")]
         public string Category { get; set; }
+        [JsonProperty("gender")]
         public string Gender { get; set; }
+        [JsonProperty("age")]
         public int Age { get; set; }
 
         //Specific Dog Info
+        [JsonProperty("likes")]
         public int Likes { get; set; } = 0;
 
+        [JsonProperty("isAdopted")]
         public bool isAdopted { get; set; } = false;
 
         public List<string> Figures { get; set; } = new List<string>();

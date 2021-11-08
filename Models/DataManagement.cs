@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace IPM_Project.Models
             _loadStaticDogList();
         }
 
+        //TODO: IMPROVE ITERATIONS: BIPART IN 2 METHODs
         private void _loadStaticDogList()
         {
             //Directory Info
@@ -52,6 +54,17 @@ namespace IPM_Project.Models
                     Dog dog = new Dog(id++, name, category, sex);
 
                     //Get the Photos
+                    List<string> dogDir = Directory.GetFiles(dir, "*.json", SearchOption.AllDirectories).ToList();
+                    foreach (string dogInfo in dogDir)
+                    {
+                        using (StreamReader sr = new StreamReader(dogInfo))
+                        {
+                            string json = sr.ReadToEnd();
+                            dog = JsonConvert.DeserializeObject<Dog>(json);
+                        }
+                    }
+
+                    //Get the Photos
                     List<string> photosDir = Directory.GetFiles(dir, "*.jpg", SearchOption.AllDirectories).ToList();
                     foreach (string photo in photosDir)
                         dog.Figures.Add(photo.Replace($"{mainDir}\\", ""));
@@ -63,7 +76,34 @@ namespace IPM_Project.Models
 
         private void _loadDynamicDogInfo()
         {
-            //Foreach Dog, Load the Info that is changed on the TXT/DB
+            //Directory Info
+            List<string> dirs = Directory.GetDirectories($"{mainDir}\\{DB_MAINFOLDER}\\{DOGS_FOLDER}",
+                                                          "*", SearchOption.AllDirectories).ToList();
+
+            int id = 1;
+
+            foreach (string dir in dirs)
+            {
+                string name = string.Empty;
+                string category = string.Empty;
+                string sex = string.Empty;
+
+                string mainSubString = dir.Replace(mainDir, "").Replace($"\\{DB_MAINFOLDER}", "").Replace($"\\{DOGS_FOLDER}\\", "");
+
+                string[] strSplit = mainSubString.Split('\\');
+
+                if (strSplit.Count() - 1 == 2)
+                {
+                    name = strSplit[2];
+                    category = strSplit[0];
+                    sex = strSplit[1];
+                    Dog dog = new Dog(id++, name, category, sex);
+
+
+
+                    this.dogList.Add(dog);
+                }
+            }
         }
 
     }

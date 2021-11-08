@@ -299,6 +299,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="files\Stage 1 - União Zoófila.docx" />
+    <Content Include="0db\Dogs\BIG\MALE\FIDEL\Fidel.json" />
     <None Include="Properties\PublishProfiles\IPMProject - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

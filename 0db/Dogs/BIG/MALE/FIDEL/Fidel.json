@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "name": "Fidel",
+  "age": 15,
+  "likes": 10,
+  "category": "BIG",
+  "gender": "Male",
+  "isAdopted": true
+}
