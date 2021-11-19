@@ -7,6 +7,9 @@ using IPM_Project.Models;
 
 namespace IPM_Project.Controllers
 {
+    /// <summary>
+    /// Directly dogs object interaction
+    /// </summary>
     public class DogsController : Controller
     {
         // GET: Dogs
@@ -17,15 +20,10 @@ namespace IPM_Project.Controllers
             return View();
         }
 
-        // GET: Dogs/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Dog(int id)
         {
-            return View();
-        }
+            //Load all the Dogs
 
-        // GET: Dogs/Edit/5
-        public ActionResult Edit(int id)
-        {
             return View();
         }
 

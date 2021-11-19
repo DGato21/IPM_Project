@@ -122,12 +122,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\DogsController.cs" />
+    <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataManagement.cs" />
-    <Compile Include="Models\Dog.cs" />
+    <Compile Include="Models\Entities\Feed.cs" />
+    <Compile Include="Models\Entities\Form.cs" />
+    <Compile Include="Models\Entities\News.cs" />
+    <Compile Include="Models\Entities\Profile.cs" />
+    <Compile Include="Models\Helper\DataManagement.cs" />
+    <Compile Include="Models\Entities\Dog.cs" />
+    <Compile Include="Models\Helper\FeedManagement.cs" />
+    <Compile Include="Models\Helper\FormManagement.cs" />
+    <Compile Include="Models\Helper\ProfileManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -328,11 +337,26 @@
     <Content Include="Views\Home\Adopt.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Data\ListDogs.cshtml" />
+    <Content Include="Views\Home\HelpUs.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Profile\Profile.cshtml" />
+    <Content Include="Views\Form\VolunteeringForm.cshtml" />
+    <Content Include="Views\Form\PartnerForm.cshtml" />
+    <Content Include="Views\Form\DonatingForm.cshtml" />
+    <Content Include="Views\Form\SurrenderDogForm.cshtml" />
+    <Content Include="Views\Form\AdoptDogForm.cshtml" />
+    <Content Include="Views\Dogs\Dog.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="0db\Forms\AdoptDog\" />
+    <Folder Include="0db\Forms\Donating\" />
+    <Folder Include="0db\Forms\Partner\" />
+    <Folder Include="0db\Forms\Surrender\" />
+    <Folder Include="0db\Forms\Volunteering\" />
+    <Folder Include="0db\GeneralNews\" />
+    <Folder Include="0db\Profiles\" />
     <Folder Include="App_Data\" />
     <Folder Include="images\" />
-    <Folder Include="Views\Dogs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

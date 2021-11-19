@@ -7,28 +7,39 @@
 <h2>ListDogs</h2>
 <h3>@ViewBag.Message</h3>
 
-@foreach (IPM_Project.Models.Dog item in Model)
+@if (Model != null && Model.Count() > 0)
+{
+    foreach (IPM_Project.Models.Dog item in Model)
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <a href="@Url.Action("Dog", "Dogs", new { id=item.Id })">
+                    <img src="~/@item.Figures[0]" alt="@item.Name" style="width:240px;height:160px;" />
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                @Html.Label($"Name: {@item.Name}") <br />
+                @Html.Label($"Category: {@item.Category}") <br />
+                @Html.Label($"Age: {@item.Age}") <br />
+                @Html.Label($"Likes: {@item.Likes}") <br />
+                @Html.Label($"Is He Adopted: {@item.isAdopted}") <br />
+            </div>
+
+            <div class="col-md-4">
+                @Html.ActionLink("Check Me!", "Dog", "Dogs", new { id = item.Id }, null)
+            </div>
+        </div>
+
+        <br />
+
+        <hr />
+    }
+}
+else
 {
     <div class="row">
-        <div class="col-md-4">
-            <img src="~/@item.Figures[0]" alt="@item.Name" style="width:240px;height:160px;"/>
-        </div>
-
-        <div class="col-md-4" >
-            @Html.Label($"Name: {@item.Name}") <br />
-            @Html.Label($"Category: {@item.Category}") <br />
-            @Html.Label($"Age: {@item.Age}") <br />
-            @Html.Label($"Likes: {@item.Likes}") <br />
-            @Html.Label($"Is He Adopted: {@item.isAdopted}") <br />
-        </div>
-
-        <div class="col-md-4">
-            @Html.ActionLink("Like", "Like", new { /* id=item.PrimaryKey */ }) <br />
-            @Html.ActionLink("Adopt", "Adopt", new { /* id=item.PrimaryKey */ }) <br />
-        </div>
+        Sorry, no Dogs were found matching your search criteria...
     </div>
-
-    <br />
-
-    <hr />
 }
+

@@ -7,8 +7,6 @@
     <div class="row">
         @Html.Label("Name:")
         @Html.TextBoxFor(m => m.Name)
-
-        <input type="submit" value="Submit" />
     </div>
 
     <div class="row">
@@ -23,18 +21,39 @@
         </div>
 
         <div class="col-md-4">
-            @Html.Label("Adopted:")
-            @Html.CheckBox("Adopted")
-        </div>
-
-        <div class="col-md-4">
             @Html.Label("Gender:")
             @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>()
                 {
-                    new SelectListItem{Text = "Male", Value = "M" },
-                    new SelectListItem{Text = "Female", Value = "F" },
+                    new SelectListItem{Text = "Male", Value = "MALE" },
+                    new SelectListItem{Text = "Female", Value = "FEMALE" },
                 }, "Please Select the Gender");
         </div>
+
+        <div class="col-md-4">
+            @Html.Label("Colour 1:")
+            @Html.DropDownListFor(m => m.Colour1, new List<SelectListItem>()
+                {
+                    new SelectListItem{Text = "Black", Value = "Black" },
+                    new SelectListItem{Text = "Brown", Value = "Brown" },
+                    new SelectListItem{Text = "White", Value = "White" },
+                    new SelectListItem{Text = "Red", Value = "Red" },
+                }, "Please Select the 1st Colour");
+        </div>
+
+        <div class="col-md-4">
+            @Html.Label("Colour 2:")
+            @Html.DropDownListFor(m => m.Colour2, new List<SelectListItem>()
+                {
+                    new SelectListItem{Text = "Black", Value = "Black" },
+                    new SelectListItem{Text = "Brown", Value = "Brown" },
+                    new SelectListItem{Text = "White", Value = "White" },
+                    new SelectListItem{Text = "Red", Value = "Red" },
+                }, "Please Select the 2nd Colour");
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="submit" value="Submit" title="Search" />
     </div>
 }
 

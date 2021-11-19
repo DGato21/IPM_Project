@@ -5,5 +5,15 @@
   "likes": 10,
   "category": "BIG",
   "gender": "Male",
-  "isAdopted": true
+  "isAdopted": true,
+  "news": [
+    {
+      "fig": null,
+      "news": "Noticia X"
+    },
+    {
+      "fig": null,
+      "news": "Noticia Y"
+    }
+  ]
 }

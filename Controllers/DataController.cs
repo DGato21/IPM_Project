@@ -31,7 +31,20 @@ namespace IPM_Project.Controllers
             foreach (string col in collection.AllKeys)
                 ViewBag.Message += $"{col}: {collection[col]}\n";
 
-            return View("ListDogs", data.dogList);
+            List<Dog> dogs = null;
+            if (collection == null || collection.AllKeys == null || collection.AllKeys.Count() == 0)
+                dogs = data.GetAllDogs();
+            else
+            {
+                Dictionary<string, string> filters = new Dictionary<string, string>();
+                foreach (string col in collection.AllKeys)
+                    filters.Add(col, collection[col]);
+
+                dogs = data.GetDogsFiltered(filters);
+            }
+                
+
+            return View("ListDogs", dogs);
         }
     }
 }

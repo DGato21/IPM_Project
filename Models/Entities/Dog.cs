@@ -8,20 +8,8 @@ namespace IPM_Project.Models
 {
     public class Dog
     {
-        public static Dictionary<string, string> CATEGORIES = new Dictionary<string, string>()
-        {
-            {"BIG", "Big"},
-            {"MEDIUM", "Medium"},
-            {"SMALL", "Small"}
-        };
 
-        public static Dictionary<string, string> GENDER = new Dictionary<string, string>()
-        {
-            {"F", "Female"},
-            {"M", "Male"}
-        };
-
-        public Dog (int id, string name, string category, string gender, int age, int likes, bool isAdopted)
+        public Dog (int id, string name, string category, string gender, int age, int likes, bool isAdopted, string colour1, string colour2)
         {
             this.Id = id;
             this.Name = name;
@@ -30,6 +18,8 @@ namespace IPM_Project.Models
             this.Age = age;
             this.Likes = likes;
             this.isAdopted = isAdopted;
+            this.Colour1 = colour1;
+            this.Colour2 = colour2;
             this.Figures = new List<string>();
         }
 
@@ -44,6 +34,9 @@ namespace IPM_Project.Models
             this.Likes = 0;
             this.isAdopted = false;
             this.Figures = new List<string>();
+
+            this.Colour1 = "undefined"; 
+            this.Colour2 = "undefined";
         }
 
         [JsonConstructor()]
@@ -62,6 +55,10 @@ namespace IPM_Project.Models
         public string Gender { get; set; }
         [JsonProperty("age")]
         public int Age { get; set; }
+        [JsonProperty("colour1")]
+        public string Colour1 { get; set; }
+        [JsonProperty("colour2")]
+        public string Colour2 { get; set; }
 
         //Specific Dog Info
         [JsonProperty("likes")]
