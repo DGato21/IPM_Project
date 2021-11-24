@@ -13,5 +13,14 @@ namespace IPM_Project.Models.Entities
 
         [JsonProperty("fig")]
         public string figure { get; set; }
+
+        [JsonProperty("publishTime")]
+        public DateTime publishTime { get; set; }
+
+        [JsonProperty("readers")]
+        public List<Profile> readers { get; set; }
+
+        [JsonProperty("supporters")]
+        public List<Profile> supporters { get; set; }
     }
 }

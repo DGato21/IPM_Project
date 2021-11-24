@@ -44,12 +44,13 @@ namespace IPM_Project.Models
                 if (filteredDog.Count == 0)
                     return null;
 
-                switch(f.Key.ToUpperInvariant())
+                switch(f.Key.Replace("modelDog.", "").ToUpperInvariant())
                 {
                     case "NAME":
                         if (!string.IsNullOrEmpty(f.Value))
                         {
-                            filteredDog = filteredDog.Where(x => x.Name.Contains(f.Value)).ToList();
+                            filteredDog = filteredDog.Where(x => x.Name.ToUpperInvariant().Contains(f.Value.ToUpperInvariant()))
+                                                     .ToList();
                         }
                         break;
 

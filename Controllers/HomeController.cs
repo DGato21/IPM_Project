@@ -28,13 +28,6 @@ namespace IPM_Project.Controllers
             return View();
         }
 
-        public ActionResult Adopt()
-        {
-            ViewBag.Title = "Adopt a Dog Page.";
-
-            return View();
-        }
-
         public ActionResult HelpUs()
         {
             ViewBag.Title = "Help Us Page.";

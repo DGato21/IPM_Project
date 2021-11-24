@@ -137,6 +137,7 @@
     <Compile Include="Models\Helper\FeedManagement.cs" />
     <Compile Include="Models\Helper\FormManagement.cs" />
     <Compile Include="Models\Helper\ProfileManagement.cs" />
+    <Compile Include="Models\SpecificViewModels\AdoptViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -305,6 +306,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\Dogs_Adopt_Background.jpeg" />
+    <Content Include="images\People_HelpUs_Background.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="files\Stage 1 - União Zoófila.docx" />
@@ -333,10 +336,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Stage1.cshtml" />
-    <Content Include="Views\Home\Adopt.cshtml" />
+    <Content Include="Views\Data\Adopt.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Data\ListDogs.cshtml" />
     <Content Include="Views\Home\HelpUs.cshtml" />
     <Content Include="Views\Home\ContactUs.cshtml" />
     <Content Include="Views\Profile\Profile.cshtml" />
@@ -356,7 +357,6 @@
     <Folder Include="0db\GeneralNews\" />
     <Folder Include="0db\Profiles\" />
     <Folder Include="App_Data\" />
-    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
