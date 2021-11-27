@@ -13,5 +13,30 @@ namespace IPM_Project.Controllers
         {
             return View();
         }
+
+        public ActionResult AdoptDogForm()
+        {
+            return View();
+        }
+
+        public ActionResult DonatingForm()
+        {
+            return View();
+        }
+
+        public ActionResult PartnerForm()
+        {
+            return View();
+        }
+
+        public ActionResult SurrenderDogForm()
+        {
+            return View();
+        }
+
+        public ActionResult VolunteeringForm()
+        {
+            return View();
+        }
     }
 }

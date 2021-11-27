@@ -1,28 +1,26 @@
-﻿<div class="row">
-    <div class="container px-4">
-        <div class="row gx-5">
-            <div class="col">
-                <div class="img-responsive" style="color: black; 
-            background-image: url('images/Dogs_Adopt_Background.jpeg'); ">
-                    <p>
-                        <a href=@Url.Action("SearchDogs", "Data")
-                           class="btn btn-primary btn-lg">
-                            Adopt Us &raquo;
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="img-responsive" style="color: black;
-            background-image: url('images/People_HelpUs_Background');">
-                    <p>
-                        <a href=@Url.Action("HelpUs", "Home")
-                           class="btn btn-primary btn-lg">
-                            Help Us &raquo;
-                        </a>
-                    </p>
-                </div>
-            </div>
+﻿<div class="container-fluid">
+    <div class="modal-body row" style="display: flex;">
+        <div class="col-md-6" style="background-image: url('images/Dogs_Adopt_Background.jpeg');">
+            <p>
+                <a href=@Url.Action("SearchDogs", "Data")
+                   class="btn btn-primary btn-lg">
+                    Adopt Us &raquo;
+                </a>
+            </p>
+        </div>
+        <div class="col-md-6" style="background-image: url('images/People_HelpUs_Background.jpeg');
+                                     background-size: cover;
+                                     background-repeat: no-repeat">
+            <p>
+                <a href=@Url.Action("HelpUs", "Home")
+                   class="btn btn-primary btn-lg">
+                    Help Us &raquo;
+                </a>
+            </p>
         </div>
     </div>
 </div>
+
+<!-- TO SEE TO OPTIMIZE DISPLAY CSS
+    https://stackoverflow.com/questions/43271669/how-to-add-full-width-background-in-two-column-col-md-6-on-bootstrap-3 
+    -->

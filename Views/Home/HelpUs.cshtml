@@ -1,8 +1,98 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "HelpUs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>HelpUs</h2>
+<div class="container-fluid">
+    <!-- Volunteering Form -->
+    <div class="modal-body row" style="display: flex;">
+        <div class="col-md-6" style="background-image: url('images/Dogs_Adopt_Background.jpeg');">
+        </div>
+        <div class="col-md-6">
+            <p>
+                <div class="text-center">
+                    <h2>Volunteering</h2>
+                </div>
+                <br />
+                Volunteering is one of the main necessities of our shelter. Cleaning our companion's
+                boxes, brushing them, pamper them, organizing their rations,... These are all part
+                of a volunteer's job so, be prepared!
+                <br />
+                <div class="text-center">
+                    <a href=@Url.Action("VolunteeringForm", "Form")
+                        class="btn btn-primary btn-lg">
+                        Become a Volunteer &raquo;
+                    </a>
+                </div>
+</p>
+        </div>
+    </div>
+
+    <!-- Become a Partner Form -->
+    <div class="modal-body row" style="display: flex;">
+        <div class="col-md-6" style="background-image: url('images/Dogs_Adopt_Background.jpeg');">
+        </div>
+        <div class="col-md-6">
+            <p>
+                <div class="text-center">
+                    <h2>Become a Partner</h2>
+                </div>
+                <br />
+                ...
+                <br />
+                <div class="text-center">
+                    <a href=@Url.Action("PartnerForm", "Form")
+                        class="btn btn-primary btn-lg">
+                        Become a Partner &raquo;
+                    </a>
+                </div>
+</p>
+        </div>
+    </div>
+
+    <!-- Donating Form -->
+    <div class="modal-body row" style="display: flex;">
+        <div class="col-md-6" style="background-image: url('images/Dogs_Adopt_Background.jpeg');">
+        </div>
+        <div class="col-md-6">
+            <p>
+                <div class="text-center">
+                    <h2>Donating</h2>
+                </div>
+                <br />
+                ...
+                <br />
+                <div class="text-center">
+                    <a href=@Url.Action("DonatingForm", "Form")
+                        class="btn btn-primary btn-lg">
+                        Donate &raquo;
+                    </a>
+                </div>
+</p>
+        </div>
+    </div>
+
+    <!-- Surrender a Dog Form -->
+    <div class="modal-body row" style="display: flex;">
+        <div class="col-md-6" style="background-image: url('images/Dogs_Adopt_Background.jpeg');">
+        </div>
+        <div class="col-md-6">
+            <p>
+                <div class="text-center">
+                    <h2>Surrender a Dog</h2>
+                </div>
+                <br />
+                ...
+                <br />
+                <div class="text-center">
+                    <a href=@Url.Action("SurrenderDogForm", "Form")
+                        class="btn btn-primary btn-lg"
+                        style="">
+                        Surrender a Dog &raquo;
+                    </a>
+                </div>
+            </p>
+        </div>
+    </div>
+</div>
 
