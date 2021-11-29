@@ -349,6 +349,7 @@
     <Content Include="Views\Form\SurrenderDogForm.cshtml" />
     <Content Include="Views\Form\AdoptDogForm.cshtml" />
     <Content Include="Views\Dogs\Dog.cshtml" />
+    <Content Include="Views\Form\SponsorDogForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="0db\Forms\AdoptDog\" />

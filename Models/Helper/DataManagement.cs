@@ -134,6 +134,28 @@ namespace IPM_Project.Models
             return filteredDog;
         }
 
+        public Dog GetDogById(int id)
+        {
+            Dictionary<string, string> filter = new Dictionary<string, string>();
+            filter.Add("ID", id.ToString());
+            List<Dog> tmpDogs = this.GetDogsFiltered(filter);
+
+            if (tmpDogs == null || tmpDogs.Count == 0)
+                return null;
+            else
+                return tmpDogs[0];
+        }
+
+        public void LikeDog(int dogId, int profileId)
+        {
+            Dog dog = GetDogById(dogId);
+
+            dog.addLike();
+
+            //TODO THE PART OF THE PROFILE
+            _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
+        }
+
         //IDEIA: WHEN ADOPT, POST A NEWS
 
         #endregion
@@ -168,14 +190,12 @@ namespace IPM_Project.Models
 
                 string[] strSplit = mainSubString.Split('\\');
 
-                int id = 1;
                 if (strSplit.Count() - 1 == 2)
                 {
                     name = strSplit[2];
                     category = strSplit[0];
                     sex = strSplit[1];
-                    Dog dog = new Dog(id++, name, category, sex);
-
+                    Dog dog = new Dog(-1, name, category, sex);
 
                     //Get the Photos
                     List<string> dogDir = Directory.GetFiles(dir, "*.json", SearchOption.AllDirectories).ToList();
@@ -185,6 +205,7 @@ namespace IPM_Project.Models
                         {
                             string json = sr.ReadToEnd();
                             dog = JsonConvert.DeserializeObject<Dog>(json);
+                            dog.dbLocation = dogInfo;
                         }
                     }
 
@@ -223,6 +244,26 @@ namespace IPM_Project.Models
             //Directory Info
             List<string> dirs = Directory.GetDirectories($"{mainDir}\\{DB_MAINFOLDER}\\{FEED_GENERAL_FOLDER}",
                                                           "*", SearchOption.AllDirectories).ToList();
+        }
+
+        #endregion
+
+        #region Utilities DB Methods
+
+        private void _saveJson(string json, string path)
+        {
+            FileInfo file = new FileInfo(path);
+
+            if (file.Exists)
+            {
+                file.Delete();
+
+                using(StreamWriter wr = file.CreateText())
+                {
+                    wr.Write(json);
+                    wr.Close();
+                }
+            }
         }
 
         #endregion

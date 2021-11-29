@@ -14,16 +14,16 @@ namespace IPM_Project.Controllers
             return View();
         }
 
-        public ActionResult AdoptDogForm()
+        public ActionResult AdoptDogForm(string dogName)
         {
-            ViewBag.Title = "Adopt a Dog";
+            ViewBag.Title = $"Adopt {dogName}";
 
             return View();
         }
 
-        public ActionResult AdoptDogForm(string dogName)
+        public ActionResult SponsorDogForm(string dogName)
         {
-            ViewBag.Title = $"Adopt {dogName}";
+            ViewBag.Title = $"Sponsor {dogName}";
 
             return View();
         }

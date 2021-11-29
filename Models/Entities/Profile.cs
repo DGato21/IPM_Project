@@ -25,5 +25,7 @@ namespace IPM_Project.Models.Entities
         public bool IsPartner;
 
         public bool HaveDog;
+
+        public string dbLocation;
     }
 }

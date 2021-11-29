@@ -1,24 +1,49 @@
 {
   "id": 1,
   "name": "Fidel",
-  "age": 15,
-  "likes": 10,
   "category": "BIG",
   "gender": "Male",
-  "isAdopted": true,
-  "location": "Sitio X",
-  "timeInCaptivity": "1 Ano",
+  "age": 15,
+  "breed": "Mixed (Unknown)",
   "colour1": "branco",
   "colour2": "preto",
   "fur": "medio",
+  "location": "Sitio X",
+  "timeInCaptivity": "1 Ano",
+  "likes": 11,
+  "isAdopted": true,
   "news": [
     {
+      "title": "News Title Loading...",
       "news": "Noticia X",
-      "publishTime": "2021-11-28"
+      "fig": "~/images/dognews_default",
+      "publishTime": "2021-11-28T00:00:00",
+      "readers": [
+      ],
+      "supporters": [
+      ],
+      "entity": null,
+      "id": -1,
+      "dbLocation": null
     },
     {
+      "title": "News Title Loading...",
       "news": "Noticia Y",
-      "publishTime": "2021-11-28"
+      "fig": "~/images/dognews_default",
+      "publishTime": "2021-11-28T00:00:00",
+      "readers": [
+      ],
+      "supporters": [
+      ],
+      "entity": null,
+      "id": -1,
+      "dbLocation": null
     }
-  ]
+  ],
+  "Figures": [
+    "0db\\Dogs\\BIG\\MALE\\FIDEL\\9749.jpg",
+    "0db\\Dogs\\BIG\\MALE\\FIDEL\\9749_2.jpg",
+    "0db\\Dogs\\BIG\\MALE\\FIDEL\\9749_3.jpg"
+  ],
+  "dbLocation": "C:\\_FCTWorkspace\\IML\\IPM_Project\\\\0db\\Dogs\\BIG\\MALE\\FIDEL\\Fidel.json"
 }

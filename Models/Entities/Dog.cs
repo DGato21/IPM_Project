@@ -19,6 +19,8 @@ namespace IPM_Project.Models.Entities
         public string Gender { get; set; }
         [JsonProperty("age")]
         public int Age { get; set; }
+        [JsonProperty("breed")]
+        public string Breed { get; set; }
         [JsonProperty("colour1")]
         public string Colour1 { get; set; }
         [JsonProperty("colour2")]
@@ -43,8 +45,10 @@ namespace IPM_Project.Models.Entities
 
         public List<string> Figures { get; set; } = new List<string>();
 
+        public string dbLocation { get; set; }
+
         public Dog (int id, string name, string category, string gender, int age, int likes, bool isAdopted, 
-            string colour1, string colour2, string fur, string location, string TimeInCaptivity)
+            string breed, string colour1, string colour2, string fur, string location, string TimeInCaptivity)
         {
             this.Id = id;
             this.Name = name;
@@ -53,6 +57,7 @@ namespace IPM_Project.Models.Entities
             this.Age = age;
             this.Likes = likes;
             this.isAdopted = isAdopted;
+            this.Breed = Breed;
             this.Colour1 = colour1;
             this.Colour2 = colour2;
             this.Fur = fur;
@@ -61,6 +66,7 @@ namespace IPM_Project.Models.Entities
 
             this.Figures = new List<string>();
             this.Feed = new List<News>();
+            this.dbLocation = null;
         }
 
         public Dog(int id, string name, string category, string gender)
@@ -74,6 +80,7 @@ namespace IPM_Project.Models.Entities
             this.Likes = 0;
             this.isAdopted = false;
 
+            this.Breed = "undefined";
             this.Colour1 = "undefined"; 
             this.Colour2 = "undefined";
             this.Fur = "undefined";
@@ -83,12 +90,18 @@ namespace IPM_Project.Models.Entities
 
             this.Figures = new List<string>();
             this.Feed = new List<News>();
+            this.dbLocation = null;
         }
 
         [JsonConstructor()]
         public Dog()
         {
-
+            this.dbLocation = null;
+        }
+    
+        public void addLike()
+        {
+            this.Likes++;
         }
     }
 }

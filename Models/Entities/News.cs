@@ -34,6 +34,8 @@ namespace IPM_Project.Models.Entities
         [JsonProperty("id")]
         public int entityId { get; set; } = -1;
 
+        public string dbLocation { get; set; } = null;
+
         public News()
         {
             this.supporters = new List<Profile>();

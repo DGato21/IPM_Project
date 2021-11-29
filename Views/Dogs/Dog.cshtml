@@ -1,35 +1,110 @@
-﻿@model IPM_Project.Models.Entities.Dog;
+﻿@model IPM_Project.Models.Entities.Dog
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!-- Dog Info -->
 <div class="container-fluid">
     <!-- DOG -->
     <div class="modal-body row" style="display: flex;">
         <div class="col-md-6">
             <img src="~/@Model.Figures[0]" alt="@Model.Name"
-                 class="rounded mx-auto d-block" />
+                 class="rounded mx-auto d-block"
+                 width="450"
+                 height="300" />
+            <div class="text-center">
+                <a href=@Url.Action("Like", "Dogs",new { id = Model.Id })
+                   class="btn btn-primary btn-lg">
+                    Like &raquo;
+                </a>
+            </div>
         </div>
         <div class="col-md-6">
             <div class="form-group row">
-                @Html.LabelForModel("")
-                <div class="col-8">
-                    @Html.Label(Model.Colour1 + " " + Model.Colour2)
-                </div>
+                <label for="Breed" class="col-4 col-form-label">Breed</label>
+                <input readonly id="breed" name="breed" type="text" class="form-control" value="@Model.Breed">
+            </div>
+
+            <div class="form-group row">
+                <label for="Sex" class="col-4 col-form-label">Sex</label>
+                <input readonly id="sex" name="sex" type="text" class="form-control" value="@Model.Gender">
+            </div>
+
+            <div class="form-group row">
+                <label for="Size" class="col-4 col-form-label">Size</label>
+                <input readonly id="size" name="size" type="text" class="form-control" value="@Model.Category">
+            </div>
+
+            <div class="form-group row">
+                <label for="Fur" class="col-4 col-form-label">Fur</label>
+                <input readonly id="fur" name="fur" type="text" class="form-control" value="@Model.Fur">
+            </div>
+
+            <div class="form-group row">
+                <label for="Location" class="col-4 col-form-label">Location</label>
+                <input readonly id="location" name="location" type="text" class="form-control" value="@Model.Location">
+            </div>
+
+            <div class="form-group row">
+                <label for="TimeInCaptivity" class="col-4 col-form-label">Time In Captivity</label>
+                <input readonly id="timeInCaptivity" name="timeInCaptivity" type="text" class="form-control" 
+                       value="@Model.TimeInCaptivity">
             </div>
 
             <div class="text-center">
-                <a href=@Url.Action("VolunteeringForm", "Form")
+                <a href=@Url.Action("AdoptDogForm", "Form",new { id = Model.Id })
                    class="btn btn-primary btn-lg">
-                    Become a Volunteer &raquo;
+                    Adopt &raquo;
                 </a>
-                <br /> <br />
-                <hr />
+                <a href=@Url.Action("SponsorDogForm", "Form",new { id = Model.Id })
+                   class="btn btn-primary btn-lg">
+                    Sponsor &raquo;
+                </a>
             </div>
         </div>
         <br />
         <hr />
     </div>
+</div>
+<hr />
+<!-- Dog Feed -->
+<div class="container-fluid" id="feedNews">
+    @if (Model != null && Model.Feed.Count() > 0)
+    {
+        foreach (IPM_Project.Models.Entities.News row in Model.Feed)
+        {
+            <div class="modal-body row" style="display: flex;">
+                <div class="col-md-6" style="background-image: url('@row.figure');
+                                    background-size: cover;
+                                    background-repeat: no-repeat">
+                    <br />
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <h2>@row.title</h2>
+                    </div>
+                    <div class="text-left">
+                        <p>@row.news</p>
+                    </div>
+                    <br />
+                    <div class="text-right">
+                        <small>Likes: @row.supporters.Count()</small>
+                        <br />
+                        <small>@row.publishTime</small>
+                    </div>
+                    <br />
+                    <hr />
+                </div>
+
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row">
+            Sorry, for the moment there is no news...
+        </div>
+    }
 </div>
 

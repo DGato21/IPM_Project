@@ -26,17 +26,37 @@ namespace IPM_Project.Controllers
         //TO IMPROVE
         public ActionResult Dog(int id)
         {
-            //Load all the Dogs
-            dataManager = new DataManagement();
+            try
+            {
+                //Load all the Dogs
+                dataManager = new DataManagement();
 
-            Dictionary<string, string> filter = new Dictionary<string, string>();
-            filter.Add("ID", id.ToString());
-            List<Dog> tmpDogs = dataManager.GetDogsFiltered(filter);
+                Dog dog = dataManager.GetDogById(id);
 
-            if (tmpDogs == null || tmpDogs.Count == 0)
-                return View("Dog", null);
-            else
-                return View("Dog", tmpDogs[0]);
+                return View("Dog", dog);
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Like(int id)
+        {
+            try
+            {
+                //Load all the Dogs
+                dataManager = new DataManagement();
+
+                dataManager.LikeDog(id, -1);
+
+                //Return to Previous Page
+                return RedirectToAction("Dog", "Dogs", new { id = id });
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         // POST: Dogs/Edit/5
