@@ -16,34 +16,12 @@
     {
       "title": "News Title Loading...",
       "news": "Noticia X",
-      "fig": "~/images/dognews_default",
-      "publishTime": "2021-11-28T00:00:00",
-      "readers": [
-      ],
-      "supporters": [
-      ],
-      "entity": null,
-      "id": -1,
-      "dbLocation": null
+      "publishTime": "2021-11-28T00:00:00"
     },
     {
       "title": "News Title Loading...",
       "news": "Noticia Y",
-      "fig": "~/images/dognews_default",
-      "publishTime": "2021-11-28T00:00:00",
-      "readers": [
-      ],
-      "supporters": [
-      ],
-      "entity": null,
-      "id": -1,
-      "dbLocation": null
+      "publishTime": "2021-11-28T00:00:00"
     }
-  ],
-  "Figures": [
-    "0db\\Dogs\\BIG\\MALE\\FIDEL\\9749.jpg",
-    "0db\\Dogs\\BIG\\MALE\\FIDEL\\9749_2.jpg",
-    "0db\\Dogs\\BIG\\MALE\\FIDEL\\9749_3.jpg"
-  ],
-  "dbLocation": "C:\\_FCTWorkspace\\IML\\IPM_Project\\\\0db\\Dogs\\BIG\\MALE\\FIDEL\\Fidel.json"
+  ]
 }

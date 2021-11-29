@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using IPM_Project.Properties;
 
 namespace IPM_Project.Models.Entities
 {
@@ -41,7 +42,7 @@ namespace IPM_Project.Models.Entities
             this.supporters = new List<Profile>();
             this.readers = new List<Profile>();
             this.publishTime = new DateTime();
-            this.figure = "~/images/dognews_default";
+            this.figure = @"images/dognews_default.jpg";
             this.news = "Loading...";
             this.title = "News Title Loading...";
 
