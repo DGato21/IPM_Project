@@ -1,0 +1,16 @@
+{
+  "newsFeed": [
+    {
+      "title": "Noticia X Titulo",
+      "fig": "images/dognews_default.jpg",
+      "news": "Noticia X",
+      "publishTime": "2021-11-28"
+    },
+    {
+      "title": "Noticia X Titulo",
+      "fig": "images/dognews_default.jpg",
+      "news": "Noticia Y",
+      "publishTime": "2021-11-28"
+    }
+  ]
+}

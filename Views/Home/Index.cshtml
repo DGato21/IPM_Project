@@ -1,26 +1,75 @@
-﻿<div class="container-fluid">
-    <div class="modal-body row" style="display: flex;">
-        <div class="col-md-6" style="background-image: url('images/Dogs_Adopt_Background.jpeg');">
-            <p>
+﻿@model IPM_Project.Models.Entities.Feed
+
+<div class="container-fluid" id="hotLinks">
+    <div class="modal-body row" style="display: flex; min-height:300px">
+        <div class="col-md-6" style="background-image: url('images/Dogs_Adopt_Background.jpeg');
+                                     background-size: cover;
+                                     background-repeat: no-repeat;
+                                     background-position: 58.33325% center;
+                                     display: block">
+            <div class="d-flex justify-content-center">
                 <a href=@Url.Action("SearchDogs", "Data")
                    class="btn btn-primary btn-lg">
                     Adopt Us &raquo;
                 </a>
-            </p>
+            </div>
         </div>
         <div class="col-md-6" style="background-image: url('images/People_HelpUs_Background.jpeg');
                                      background-size: cover;
-                                     background-repeat: no-repeat">
-            <p>
+                                     background-repeat: no-repeat;
+                                     background-position: 58.33325% center;
+                                     display: block">
+            <div class="d-flex justify-content-center">
                 <a href=@Url.Action("HelpUs", "Home")
                    class="btn btn-primary btn-lg">
                     Help Us &raquo;
                 </a>
-            </p>
+            </div>
         </div>
     </div>
 </div>
 
+<hr />
+
+<div class="container-fluid" id="feedNews">
+    @if (Model != null && Model.feedNews.Count() > 0)
+    {
+        foreach (IPM_Project.Models.Entities.News row in Model.feedNews)
+        {
+            <div class="modal-body row" style="display: flex;">
+                <div class="col-md-6" style="background-image: url('@row.figure');
+                                    background-size: cover;
+                                    background-repeat: no-repeat">
+                    <br />
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <h2>@row.title</h2>
+                    </div>
+                    <div class="text-left">
+                        <p>@row.news</p>
+                    </div>
+                    <br />
+                    <div class="text-right">
+                        <small>Likes: @row.supporters.Count()</small>
+                        <br />
+                        <small>@row.publishTime</small>
+                    </div>
+                    <br />
+                    <hr />
+                </div>
+
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row">
+            Sorry, for the moment there is no news...
+        </div>
+    }
+</div>
+
 <!-- TO SEE TO OPTIMIZE DISPLAY CSS
-    https://stackoverflow.com/questions/43271669/how-to-add-full-width-background-in-two-column-col-md-6-on-bootstrap-3 
+    https://stackoverflow.com/questions/43271669/how-to-add-full-width-background-in-two-column-col-md-6-on-bootstrap-3
     -->

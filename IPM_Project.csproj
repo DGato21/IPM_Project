@@ -306,12 +306,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\dognews_default.jpg" />
     <Content Include="images\Dogs_Adopt_Background.jpeg" />
     <Content Include="images\People_HelpUs_Background.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="files\Stage 1 - União Zoófila.docx" />
     <Content Include="0db\Dogs\BIG\MALE\FIDEL\Fidel.json" />
+    <Content Include="0db\News\GeneralNews\ZoofilaNews.json" />
     <None Include="Properties\PublishProfiles\IPMProject - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -354,8 +356,6 @@
     <Folder Include="0db\Forms\Partner\" />
     <Folder Include="0db\Forms\Surrender\" />
     <Folder Include="0db\Forms\Volunteering\" />
-    <Folder Include="0db\GeneralNews\" />
-    <Folder Include="0db\Profiles\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

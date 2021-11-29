@@ -6,14 +6,21 @@
   "category": "BIG",
   "gender": "Male",
   "isAdopted": true,
+  "location": "Sitio X",
+  "timeInCaptivity": "1 Ano",
+  "colour1": "branco",
+  "colour2": "preto",
+  "fur": "medio",
   "news": [
     {
       "fig": null,
-      "news": "Noticia X"
+      "news": "Noticia X",
+      "publishTime": "2021-11-28"
     },
     {
       "fig": null,
-      "news": "Noticia Y"
+      "news": "Noticia Y",
+      "publishTime": "2021-11-28"
     }
   ]
 }

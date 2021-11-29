@@ -16,26 +16,43 @@ namespace IPM_Project.Controllers
 
         public ActionResult AdoptDogForm()
         {
+            ViewBag.Title = "Adopt a Dog";
+
+            return View();
+        }
+
+        public ActionResult AdoptDogForm(string dogName)
+        {
+            ViewBag.Title = $"Adopt {dogName}";
+
             return View();
         }
 
         public ActionResult DonatingForm()
         {
+            ViewBag.Title = "Make a Donation";
+
             return View();
         }
 
         public ActionResult PartnerForm()
         {
+            ViewBag.Title = "Become a Partner";
+
             return View();
         }
 
         public ActionResult SurrenderDogForm()
         {
+            ViewBag.Title = "Surrender a Dog";
+
             return View();
         }
 
         public ActionResult VolunteeringForm()
         {
+            ViewBag.Title = "Become a Volunteer";
+
             return View();
         }
     }

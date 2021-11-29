@@ -8,6 +8,12 @@ namespace IPM_Project.Models.Entities
 {
     public class Feed
     {
+        [JsonProperty("newsFeed")]
         public List<News> feedNews { get; set; }
+
+        public Feed()
+        {
+            this.feedNews = new List<News>();
+        }
     }
 }

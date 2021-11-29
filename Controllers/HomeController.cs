@@ -1,4 +1,7 @@
-﻿using System;
+﻿using IPM_Project.Models;
+using IPM_Project.Models.Entities;
+using IPM_Project.Models.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,11 +17,16 @@ namespace IPM_Project.Controllers
     /// </summary>
     public class HomeController : Controller
     {
+        private FeedManagement feedManager;
+
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
 
-            return View();
+            feedManager = new FeedManagement();
+            Feed feed = feedManager.GetGeneralFeed();
+
+            return View("Index", feed);
         }
 
         public ActionResult Stage1()

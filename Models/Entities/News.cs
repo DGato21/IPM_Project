@@ -8,6 +8,9 @@ namespace IPM_Project.Models.Entities
 {
     public class News
     {
+        [JsonProperty("title")]
+        public string title { get; set; }
+
         [JsonProperty("news")]
         public string news { get; set; }
 
@@ -22,5 +25,15 @@ namespace IPM_Project.Models.Entities
 
         [JsonProperty("supporters")]
         public List<Profile> supporters { get; set; }
+
+        public News()
+        {
+            this.supporters = new List<Profile>();
+            this.readers = new List<Profile>();
+            this.publishTime = new DateTime();
+            this.figure = "~/images/dognews_default";
+            this.news = "Loading...";
+            this.title = "News Title Loading...";
+        }
     }
 }
