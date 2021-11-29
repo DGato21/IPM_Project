@@ -4,9 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<p class="h1">@ViewBag.Title</p>
+<h1 class="center-block; text-center">@ViewBag.Title</h1>
 
-@using (Html.BeginForm("AdoptDogForm", "Form", FormMethod.Post))
+@using (Html.BeginForm("ReceiveForm", "Form", new { type = "AdoptDog" }, FormMethod.Post, null))
 {
     <div class="form-group row">
         <label for="fullName" class="col-4 col-form-label">Full Name</label>

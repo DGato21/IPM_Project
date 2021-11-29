@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace IPM_Project.Models
 {
@@ -171,6 +172,24 @@ namespace IPM_Project.Models
 
         #endregion
 
+        #region Form Endpoints
+
+        public void SubmitForm(FormCollection form, string formType)
+        {
+            Dictionary<string, object> formDic = _convertFormToDic(form);
+
+            string json = JsonConvert.SerializeObject(formDic);
+
+            string now = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss:ffff");
+
+            string fileName = $"{formType.ToUpperInvariant()}_{now}.json";
+            string path = $"~/{DB_MAINFOLDER}/{FORMS_FOLDER}/{fileName}";
+
+            _saveJson(json, path);
+        }
+
+        #endregion
+
         #region Static Info Load
 
         //TODO: IMPROVE ITERATIONS: BIPART IN 2 METHODs
@@ -257,13 +276,23 @@ namespace IPM_Project.Models
             if (file.Exists)
             {
                 file.Delete();
-
-                using(StreamWriter wr = file.CreateText())
-                {
-                    wr.Write(json);
-                    wr.Close();
-                }
             }
+
+            using(StreamWriter wr = file.CreateText())
+            {
+                wr.Write(json);
+                wr.Close();
+            }
+        }
+
+        private Dictionary<string, object> _convertFormToDic(FormCollection form)
+        {
+            Dictionary<string, object> dic = new Dictionary<string, object>();
+
+            foreach (string col in form.AllKeys)
+                dic.Add(col, form[col]);
+
+            return dic;
         }
 
         #endregion

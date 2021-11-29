@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -357,13 +360,10 @@
     <Content Include="Views\Form\AdoptDogForm.cshtml" />
     <Content Include="Views\Dogs\Dog.cshtml" />
     <Content Include="Views\Form\SponsorDogForm.cshtml" />
+    <Content Include="Views\Shared\ResponseForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="0db\Forms\AdoptDog\" />
-    <Folder Include="0db\Forms\Donating\" />
-    <Folder Include="0db\Forms\Partner\" />
-    <Folder Include="0db\Forms\Surrender\" />
-    <Folder Include="0db\Forms\Volunteering\" />
+    <Folder Include="0db\Forms\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

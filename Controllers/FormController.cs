@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IPM_Project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace IPM_Project.Controllers
 {
     public class FormController : Controller
     {
+        private DataManagement dataManager;
+
         // GET: Form
         public ActionResult Index()
         {
@@ -63,9 +66,15 @@ namespace IPM_Project.Controllers
 
             try
             {
+                this.dataManager = new DataManagement();
+
+                dataManager.SubmitForm(form, type);
+
                 ViewBag.Title = $"Form {type} submited sucessfully";
 
-                return View();
+                ViewBag.Message = $"We are now going to analize your submission and will responde to your request as soon as possible.";
+
+                return View("ResponseForm");
             }
             catch(Exception ex)
             {
@@ -73,7 +82,7 @@ namespace IPM_Project.Controllers
 
                 ViewBag.Message = $"Error: {ex.Message}.";
 
-                return View();
+                return View("ResponseForm");
             }
         }
     }
