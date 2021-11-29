@@ -313,6 +313,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\dognews_default.jpg" />
     <Content Include="images\Dogs_Adopt_Background.jpeg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo_big.PNG" />
     <Content Include="images\People_HelpUs_Background.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

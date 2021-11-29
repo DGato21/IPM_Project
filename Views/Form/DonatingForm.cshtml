@@ -4,9 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>DonatingForm</h2>
+<p class="h1">@ViewBag.Title</p>
 
-<form>
+@using (Html.BeginForm("DonatingForm", "Form", FormMethod.Post))
+{
     <div class="form-group row">
         <label for="fullName" class="col-4 col-form-label">Full Name</label>
         <div class="col-8">
@@ -59,4 +60,4 @@
             <button name="submit" type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
-</form>
+}

@@ -6,25 +6,27 @@
                                      background-size: cover;
                                      background-repeat: no-repeat;
                                      background-position: 58.33325% center;
-                                     display: block">
-            <div class="d-flex justify-content-center">
+                                     display: block;
+                                     border-radius: 2%">
+            <container class="text-center">
                 <a href=@Url.Action("SearchDogs", "Data")
-                   class="btn btn-primary btn-lg">
+                   class="btn btn-primary btn-lg text-center">
                     Adopt Us &raquo;
                 </a>
-            </div>
+            </container>
         </div>
         <div class="col-md-6" style="background-image: url('images/People_HelpUs_Background.jpeg');
                                      background-size: cover;
                                      background-repeat: no-repeat;
                                      background-position: 58.33325% center;
-                                     display: block">
-            <div class="d-flex justify-content-center">
+                                     display: block;
+                                     border-radius: 2%">
+            <container class="text-center">
                 <a href=@Url.Action("HelpUs", "Home")
-                   class="btn btn-primary btn-lg">
+                    class="btn btn-primary btn-lg">
                     Help Us &raquo;
                 </a>
-            </div>
+            </container>
         </div>
     </div>
 </div>
@@ -44,7 +46,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="text-center">
-                        <h2>@row.title</h2>
+                        <p class="h1">@row.title</p>
                     </div>
                     <div class="text-left">
                         <p>@row.news</p>
@@ -58,7 +60,6 @@
                     <br />
                     <hr />
                 </div>
-
             </div>
         }
     }

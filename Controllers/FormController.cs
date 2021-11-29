@@ -55,5 +55,26 @@ namespace IPM_Project.Controllers
 
             return View();
         }
+
+
+        public ActionResult ReceiveForm(FormCollection form, string type)
+        {
+            ViewBag.Title = "Initialize";
+
+            try
+            {
+                ViewBag.Title = $"Form {type} submited sucessfully";
+
+                return View();
+            }
+            catch(Exception ex)
+            {
+                ViewBag.Title = $"Something Wrong! Form {type} not submited.";
+
+                ViewBag.Message = $"Error: {ex.Message}.";
+
+                return View();
+            }
+        }
     }
 }
