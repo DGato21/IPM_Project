@@ -1,4 +1,5 @@
 ﻿using IPM_Project.Models;
+using IPM_Project.Models.Entities;
 using IPM_Project.Models.SpecificViewModels;
 using System;
 using System.Collections.Generic;

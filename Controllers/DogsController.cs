@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IPM_Project.Models;
+using IPM_Project.Models.Entities;
 
 namespace IPM_Project.Controllers
 {
@@ -12,6 +13,8 @@ namespace IPM_Project.Controllers
     /// </summary>
     public class DogsController : Controller
     {
+        DataManagement dataManager;
+
         // GET: Dogs
         public ActionResult Index()
         {
@@ -20,11 +23,20 @@ namespace IPM_Project.Controllers
             return View();
         }
 
+        //TO IMPROVE
         public ActionResult Dog(int id)
         {
             //Load all the Dogs
+            dataManager = new DataManagement();
 
-            return View();
+            Dictionary<string, string> filter = new Dictionary<string, string>();
+            filter.Add("ID", id.ToString());
+            List<Dog> tmpDogs = dataManager.GetDogsFiltered(filter);
+
+            if (tmpDogs == null || tmpDogs.Count == 0)
+                return View("Dog", null);
+            else
+                return View("Dog", tmpDogs[0]);
         }
 
         // POST: Dogs/Edit/5

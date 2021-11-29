@@ -1,8 +1,35 @@
-﻿
+﻿@model IPM_Project.Models.Entities.Dog;
+
 @{
-    ViewBag.Title = "Dog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Dog</h2>
+<div class="container-fluid">
+    <!-- DOG -->
+    <div class="modal-body row" style="display: flex;">
+        <div class="col-md-6">
+            <img src="~/@Model.Figures[0]" alt="@Model.Name"
+                 class="rounded mx-auto d-block" />
+        </div>
+        <div class="col-md-6">
+            <div class="form-group row">
+                @Html.LabelForModel("")
+                <div class="col-8">
+                    @Html.Label(Model.Colour1 + " " + Model.Colour2)
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href=@Url.Action("VolunteeringForm", "Form")
+                   class="btn btn-primary btn-lg">
+                    Become a Volunteer &raquo;
+                </a>
+                <br /> <br />
+                <hr />
+            </div>
+        </div>
+        <br />
+        <hr />
+    </div>
+</div>
 

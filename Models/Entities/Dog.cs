@@ -1,15 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using IPM_Project.Models.Entities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace IPM_Project.Models
+namespace IPM_Project.Models.Entities
 {
     public class Dog
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id { get; set; } = -1;
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("category")]
@@ -37,6 +38,9 @@ namespace IPM_Project.Models
         [JsonProperty("isAdopted")]
         public bool isAdopted { get; set; } = false;
 
+        [JsonProperty("news")]
+        public List<News> Feed { get; set; } = new List<News>();
+
         public List<string> Figures { get; set; } = new List<string>();
 
         public Dog (int id, string name, string category, string gender, int age, int likes, bool isAdopted, 
@@ -52,9 +56,11 @@ namespace IPM_Project.Models
             this.Colour1 = colour1;
             this.Colour2 = colour2;
             this.Fur = fur;
-            this.Figures = new List<string>();
             this.Location = location;
             this.TimeInCaptivity = TimeInCaptivity;
+
+            this.Figures = new List<string>();
+            this.Feed = new List<News>();
         }
 
         public Dog(int id, string name, string category, string gender)
@@ -67,7 +73,6 @@ namespace IPM_Project.Models
             this.Age = 0;
             this.Likes = 0;
             this.isAdopted = false;
-            this.Figures = new List<string>();
 
             this.Colour1 = "undefined"; 
             this.Colour2 = "undefined";
@@ -75,6 +80,9 @@ namespace IPM_Project.Models
 
             this.Location = "unknown";
             this.TimeInCaptivity = "unknown";
+
+            this.Figures = new List<string>();
+            this.Feed = new List<News>();
         }
 
         [JsonConstructor()]

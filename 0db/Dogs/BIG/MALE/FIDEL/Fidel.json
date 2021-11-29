@@ -13,12 +13,10 @@
   "fur": "medio",
   "news": [
     {
-      "fig": null,
       "news": "Noticia X",
       "publishTime": "2021-11-28"
     },
     {
-      "fig": null,
       "news": "Noticia Y",
       "publishTime": "2021-11-28"
     }

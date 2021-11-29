@@ -60,6 +60,14 @@ namespace IPM_Project.Models
 
                 switch(f.Key.Replace("modelDog.", "").ToUpperInvariant())
                 {
+                    case "ID":
+                        if (!string.IsNullOrEmpty(f.Value))
+                        {
+                            filteredDog = filteredDog.Where(x => x.Id.ToString().Equals(f.Value.ToUpperInvariant()))
+                                                     .ToList();
+                        }
+                        break;
+
                     case "NAME":
                         if (!string.IsNullOrEmpty(f.Value))
                         {
@@ -106,6 +114,20 @@ namespace IPM_Project.Models
                             filteredDog = filteredDog.Where(x => x.Colour2.Equals(f.Value, StringComparison.InvariantCultureIgnoreCase)).ToList();
                         }
                         break;
+
+                    case "FUR":
+                        if (!string.IsNullOrEmpty(f.Value))
+                        {
+                            filteredDog = filteredDog.Where(x => x.Fur.Equals(f.Value, StringComparison.InvariantCultureIgnoreCase)).ToList();
+                        }
+                        break;
+
+                    case "NEWS":
+                        if (!string.IsNullOrEmpty(f.Value))
+                        {
+                            filteredDog = filteredDog.Where(x => x.Feed.Count() > 0).ToList();
+                        }
+                        break;
                 }
             }
 
@@ -136,8 +158,6 @@ namespace IPM_Project.Models
             List<string> dirs = Directory.GetDirectories($"{mainDir}\\{DB_MAINFOLDER}\\{DOGS_FOLDER}", 
                                                           "*", SearchOption.AllDirectories).ToList();
 
-            int id = 1;
-
             foreach (string dir in dirs)
             {
                 string name = string.Empty;
@@ -148,12 +168,14 @@ namespace IPM_Project.Models
 
                 string[] strSplit = mainSubString.Split('\\');
 
+                int id = 1;
                 if (strSplit.Count() - 1 == 2)
                 {
                     name = strSplit[2];
                     category = strSplit[0];
                     sex = strSplit[1];
                     Dog dog = new Dog(id++, name, category, sex);
+
 
                     //Get the Photos
                     List<string> dogDir = Directory.GetFiles(dir, "*.json", SearchOption.AllDirectories).ToList();

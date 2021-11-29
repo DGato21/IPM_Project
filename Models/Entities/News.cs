@@ -26,6 +26,14 @@ namespace IPM_Project.Models.Entities
         [JsonProperty("supporters")]
         public List<Profile> supporters { get; set; }
 
+        //Specific Entity Info
+
+        [JsonProperty("entity")]
+        public string specificEntity { get; set; } = null;
+
+        [JsonProperty("id")]
+        public int entityId { get; set; } = -1;
+
         public News()
         {
             this.supporters = new List<Profile>();
@@ -34,6 +42,9 @@ namespace IPM_Project.Models.Entities
             this.figure = "~/images/dognews_default";
             this.news = "Loading...";
             this.title = "News Title Loading...";
+
+            this.specificEntity = null;
+            this.entityId = -1;
         }
     }
 }

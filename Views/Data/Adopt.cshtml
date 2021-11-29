@@ -68,7 +68,7 @@
 <div id="listDog" class="container">
     @if (Model != null && Model.searchDogs.Count() > 0)
     {
-        foreach (IPM_Project.Models.Dog[] row in Model.searchDogs)
+        foreach (IPM_Project.Models.Entities.Dog[] row in Model.searchDogs)
         {
             <div class="row">
                 @if (row.Count() >= 1 && row[0] != null)
