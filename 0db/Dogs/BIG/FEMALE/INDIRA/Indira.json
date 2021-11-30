@@ -1,0 +1,28 @@
+{
+  "id": 2,
+  "name": "Indira",
+  "category": "BIG",
+  "gender": "Female",
+  "ageYear": 8,
+  "ageMonth": 8,
+  "breed": "Mixed (Unknown)",
+  "fur": "Short",
+  "location": "Enfermaria - BOX010",
+  "timeInCaptivityYear": 6,
+  "timeInCaptivityMonth": 2,
+  "description": "Esta beleza é a Indira. É uma paz de alma, e de alguma forma transmite essa paz. Pode ser de porte grande mas é suave e delicada, e é doce. Cadela muito meiga, tranquila e discreta, que se dá bem com toda a gente. Que desperdício que, ternuras como ela, tenham de passar a sua vida na solidão de um abrigo. A Indira espera muito por uma casa. A Indira é grande mas a energia dela é bastante moderada e calma. Um apartamento estaria mais que perfeito para ela, desde que tenha uma caminha para dormir o seu sono de beleza. A Indira e cães como ela, ficam para trás por serem um pouco maiores, quando se adaptariam perfeitamente a apartamentos pequenos pois são cães com energia mais baixa e mais tranquilos que muitas vezes cães de porte pequeno.",
+  "likes": 11,
+  "isAdopted": true,
+  "news": [
+    {
+      "title": "Indira teve que ir para a Enfermaria",
+      "news": "Está tudo bem, mas esta matulona aleijou-se na pata enquanto estava num passeio. Nada que um penso não resolva! Muito carinho da veterinária depois, a Indira está pronta para ter a pata boa outra vez para se aventurar mais vezes no mundo exterior.",
+      "publishTime": "2021-11-28T10:05:00"
+    },
+    {
+      "title": "Indira celebra o sexto ano na UZ",
+      "news": "É triste, mas verdade. Esta rapariga chegou ao nosso cuidado quando tinha 2 anos e agora já chegou aos 8 anos. Todos os voluntários que interagem com ela sabem que ela é uma menina meiga e calma, perfeita para uma família com crianças e um quintal grande.",
+      "publishTime": "2021-09-14T14:30:03"
+    }
+  ]
+}
