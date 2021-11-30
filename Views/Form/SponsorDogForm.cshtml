@@ -1,12 +1,16 @@
-﻿
+﻿@model IPM_Project.Models.Entities.Dog
+
 @{
-    ViewBag.Title = "SponsorDogForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1 class="center-block; text-center">@ViewBag.Title</h1>
 
-@using (Html.BeginForm("ReceiveForm", "Form", new { type = "SponsorDog" }, FormMethod.Post, null))
+<p>
+    We are glad that you want to adopt @Model.Name! For that, we need to know a little more about you so that you can prepare the adoption process.
+</p>
+
+@using (Html.BeginForm("ReceiveForm", "Form", new { type = "SponsorDog", DogId = ViewBag.DogId }, FormMethod.Post, null))
 {
     <div class="form-group row">
         <label for="fullName" class="col-4 col-form-label">Full Name</label>

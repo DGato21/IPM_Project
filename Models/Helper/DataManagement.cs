@@ -157,6 +157,16 @@ namespace IPM_Project.Models
             _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
         }
 
+        private void SponsorDog(int dogId, int profileId)
+        {
+            Dog dog = GetDogById(dogId);
+
+            //dog.sponsorDog(profileId);
+
+            //TODO THE PART OF THE PROFILE
+            _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
+        }
+
         //IDEIA: WHEN ADOPT, POST A NEWS
 
         #endregion
@@ -174,18 +184,39 @@ namespace IPM_Project.Models
 
         #region Form Endpoints
 
-        public void SubmitForm(FormCollection form, string formType)
+        public void SubmitForm(FormCollection form, string formType, int? dogId = null)
         {
             Dictionary<string, object> formDic = _convertFormToDic(form);
 
             string json = JsonConvert.SerializeObject(formDic);
 
-            string now = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss:ffff");
+            string now = DateTime.Now.ToString("yyyy-MM-dd_hh:mm:ss:ffff");
+
+            //TODO: O SAVE NAO ESTA A FUNCIONAR POR CAUSA DE CAMINHO INVALIDO
 
             string fileName = $"{formType.ToUpperInvariant()}_{now}.json";
-            string path = $"~/{DB_MAINFOLDER}/{FORMS_FOLDER}/{fileName}";
+            string path = $"{DB_MAINFOLDER}\\{FORMS_FOLDER}\\{fileName}";
+            string finalPath = Path.Combine(mainDir, path);
 
-            _saveJson(json, path);
+            _saveJson(json, finalPath);
+        }
+
+        //TO FINISH
+        private void _executeFormActions(string formType, int? dogId)
+        {
+            //TODO_DR - Finish actions for each form
+            /*
+             * Sponsor Dog: Get the Dog And Add Him a News
+             */
+            switch(formType)
+            {
+                case "AdoptDog":
+                    break;
+                case "SponsorDog":
+                    break;
+                default:
+                    break;
+            }
         }
 
         #endregion
