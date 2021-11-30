@@ -1,0 +1,23 @@
+{
+  "id": 5,
+  "name": "Chica Bella",
+  "category": "MEDIUM",
+  "gender": "Female",
+  "ageYear": 9,
+  "ageMonth": 9,
+  "breed": "Mixed (Unknown)",
+  "fur": "Short and thick",
+  "location": "Enfermaria - BOX012",
+  "timeInCaptivityYear": 0,
+  "timeInCaptivityMonth": 5,
+  "description": "A Chica Bella inicialmente mostra-se reservada e medrosa mas ao ganhar confiança transforma-se na maior ternurinha. É muito doce e carinhosa. Uma das patinhas teve de ser amputada, pois foi resgatada com um tumor nessa pata. A Chica recuperou, está de boa saúde e completamente adaptada à sua nova condição. É muito brincalhona, adora correr atrás da bolinha e adora passear. Dá-se bem com outros cães.",
+  "likes": 14,
+  "isAdopted": false,
+  "news": [
+    {
+      "title": "Amor com três patas",
+      "news": "A Chica Bella foi resgatada com um tumor numa das pernas da frente. A amputação salvou-a, mas ela que meio ficou atarantada com a sua nova restrição... por 1 semana! Esta menina adaptou-se imediatamente e agora corre, brinca e passeia como se não fosse nada!",
+      "publishTime": "2021-06-16T10:30:00"
+    }
+  ]
+}

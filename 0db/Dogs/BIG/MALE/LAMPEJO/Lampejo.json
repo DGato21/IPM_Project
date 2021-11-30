@@ -1,0 +1,23 @@
+{
+  "id": 4,
+  "name": "Lampejo",
+  "category": "BIG",
+  "gender": "Male",
+  "ageYear": 0,
+  "ageMonth": 6,
+  "breed": "Mixed (Unknown)",
+  "fur": "Short",
+  "location": "Cercado do Dragão - BOX035",
+  "timeInCaptivityYear": 0,
+  "timeInCaptivityMonth": 2,
+  "description" : "O Lampejo é um bebezola muito alegre, esperto e enérgico, que adora atenção e muito brincadeira. Adora que lhe atirem o brinquedo e já sabe ir buscar e entregar para que atirem de novo. Procura uma família que cuide dele com todo o respeito e carinho por toda a sua vida.",
+  "likes": 5,
+  "isAdopted": false,
+  "news": [
+    {
+      "title": "Novo bebé na UZ",
+      "news": "Que absoluto amor de cão! Já tá a mostrar uma personalidade: é esperto, alegre e tem energia que nunca mais acaba",
+      "publishTime": "2021-09-12T19:43:00"
+    }
+  ]
+}

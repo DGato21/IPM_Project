@@ -3,25 +3,26 @@
   "name": "Fidel",
   "category": "BIG",
   "gender": "Male",
-  "age": 15,
+  "ageYear": 8,
+  "ageMonth": 0,
   "breed": "Mixed (Unknown)",
-  "colour1": "branco",
-  "colour2": "preto",
-  "fur": "medio",
-  "location": "Sitio X",
-  "timeInCaptivity": "1 Ano",
-  "likes": 11,
+  "fur": "Short",
+  "location": "Correnteza - BOX119",
+  "timeInCaptivityYear": 6,
+  "timeInCaptivityMonth": 6,
+  "description" : "O Fidel é um cão muito meigo e com muito energia. Fica muito ansioso por ser extremamente carente de atenção o que faz com que se exceda na forma de demonstrar afecto. Precisa de uma família que o compreenda e respeite e o ajude a moderar toda a sua energia e necessidade de atenção."
+  "likes": 31,
   "isAdopted": true,
   "news": [
     {
-      "title": "News Title Loading...",
-      "news": "Noticia X",
-      "publishTime": "2021-11-28T00:00:00"
+      "title": "Lindo menino conhece família",
+      "news": "Hoje o Fidel conheceu uma família que está interessada em adoção e comportou-se muito bem!",
+      "publishTime": "2021-10-28T16:40:00"
     },
     {
-      "title": "News Title Loading...",
-      "news": "Noticia Y",
-      "publishTime": "2021-11-28T00:00:00"
+      "title": "Fidel não se comportou bem hoje",
+      "news": "Deu um susto a um voluntário depois de ter saltado para cima dele com a sua excitação clássica. A UZ tenta o seu melhor, mas a verdade é que o ambiente de uma box não é bom para estes cães e para aqueles especialmente carentes como o Fidel é sufocante. Os passeios são muito importantes!",
+      "publishTime": "2021-09-28T13:50:00"
     }
   ]
 }
