@@ -1,0 +1,23 @@
+{
+  "id": 7,
+  "name": "Bob",
+  "category": "MEDIUM",
+  "gender": "Male",
+  "ageYear": 8,
+  "ageMonth": 7,
+  "breed": "American Pit Bull Terrier",
+  "fur": "Short",
+  "location": "Cacilda + Cozinha - BOX132",
+  "timeInCaptivityYear": 0,
+  "timeInCaptivityMonth": 9,
+  "description": "O Bob é um cão logo muito simpático e afável ao primeiro encontro. Forte e robusto mas de patas curtas, que juntando ao seu focinho bochechudo, dá-lhe um ar irresistível! Adorável e um grande companheiro. O Boby procura uma família que o adopte e acompanhe ao longo de toda a sua vida.",
+  "likes": 6,
+  "isAdopted": false,
+  "news": [
+    {
+      "title": "Bob tem toda a atenção da cozinha",
+      "news": "Este menino lindo está sempre a pousar na sua box sempre que vem alguém visitar. Ganha logo toda a atenção!",
+      "publishTime": "2021-10-22T11:45:00"
+    }
+  ]
+}
