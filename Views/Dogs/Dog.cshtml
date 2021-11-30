@@ -53,11 +53,11 @@
             </div>
 
             <div class="text-center">
-                <a href=@Url.Action("AdoptDogForm", "Form",new { id = Model.Id })
+                <a href=@Url.Action("AdoptDogForm", "Form", new { dogId = Model.Id, dogName = Model.Name })
                    class="btn btn-primary btn-lg">
                     Adopt &raquo;
                 </a>
-                <a href=@Url.Action("SponsorDogForm", "Form",new { id = Model.Id })
+                <a href=@Url.Action("SponsorDogForm", "Form", new { dogId = Model.Id, dogName = Model.Name })
                    class="btn btn-primary btn-lg">
                     Sponsor &raquo;
                 </a>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="text-center">
-                        <h2>@row.title</h2>
+                        <p class="h1">@row.title</p>
                     </div>
                     <div class="text-left">
                         <p>@row.news</p>

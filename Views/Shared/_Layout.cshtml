@@ -17,10 +17,17 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Adopt.Don't Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <!-- 
+                    LINKABLE BUTTON INSTEAD OF TEXT
+                <a href="@Url.Action("Index", "Home", new { area = "" })">
+                    <img src="~/images/logo_big.PNG" alt="Adopt don't Shop"
+                         class="rounded mx-auto d-block" height="52px"/>
+                </a>
+                -->
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <!--<li>@Html.ActionLink("Home", "Index", "Home")</li>-->
                     <li>@Html.ActionLink("Adopt", "SearchDogs", "Data")</li>
                     <li>@Html.ActionLink("HelpUs", "HelpUs", "Home")</li>
                     <li>@Html.ActionLink("ContactUs", "ContactUs", "Home")</li>
