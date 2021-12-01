@@ -11,27 +11,42 @@ namespace IPM_Project.Models.Entities
     {
         [JsonProperty("id")]
         public int Id { get; set; } = -1;
+
         [JsonProperty("name")]
         public string Name { get; set; }
+
         [JsonProperty("category")]
         public string Category { get; set; }
+
         [JsonProperty("gender")]
         public string Gender { get; set; }
+
         [JsonProperty("age")]
         public int Age { get; set; }
+
         [JsonProperty("breed")]
         public string Breed { get; set; }
-        [JsonProperty("colour1")]
-        public string Colour1 { get; set; }
-        [JsonProperty("colour2")]
-        public string Colour2 { get; set; }
+
         [JsonProperty("fur")]
         public string Fur { get; set; }
+
         [JsonProperty("location")]
         public string Location { get; set; }
 
-        [JsonProperty("timeInCaptivity")]
-        public string TimeInCaptivity { get; set; }
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [JsonProperty("ageYear")]
+        public int AgeYear { get; set; }
+
+        [JsonProperty("ageMonth")]
+        public int AgeMonth { get; set; }
+
+        [JsonProperty("timeInCaptivityYear")]
+        public int TimeInCaptivityYear { get; set; }
+
+        [JsonProperty("timeInCaptivityMonth")]
+        public int TimeInCaptivityMonth { get; set; }
 
         //Specific App Info
         [JsonProperty("likes")]
@@ -48,7 +63,7 @@ namespace IPM_Project.Models.Entities
         public string dbLocation { get; set; }
 
         public Dog (int id, string name, string category, string gender, int age, int likes, bool isAdopted, 
-            string breed, string colour1, string colour2, string fur, string location, string TimeInCaptivity)
+            string breed, string fur, string location)
         {
             this.Id = id;
             this.Name = name;
@@ -57,12 +72,9 @@ namespace IPM_Project.Models.Entities
             this.Age = age;
             this.Likes = likes;
             this.isAdopted = isAdopted;
-            this.Breed = Breed;
-            this.Colour1 = colour1;
-            this.Colour2 = colour2;
+            this.Breed = breed;
             this.Fur = fur;
             this.Location = location;
-            this.TimeInCaptivity = TimeInCaptivity;
 
             this.Figures = new List<string>();
             this.Feed = new List<News>();
@@ -76,17 +88,20 @@ namespace IPM_Project.Models.Entities
             this.Category = category;
             this.Gender = gender;
             //Default Info
-            this.Age = 0;
+            this.Age = -1;
             this.Likes = 0;
             this.isAdopted = false;
 
+            this.TimeInCaptivityMonth = -1;
+            this.TimeInCaptivityYear = -1;
+
+            this.AgeMonth = -1;
+            this.AgeYear = -1;
+
             this.Breed = "undefined";
-            this.Colour1 = "undefined"; 
-            this.Colour2 = "undefined";
             this.Fur = "undefined";
 
             this.Location = "unknown";
-            this.TimeInCaptivity = "unknown";
 
             this.Figures = new List<string>();
             this.Feed = new List<News>();
@@ -99,6 +114,25 @@ namespace IPM_Project.Models.Entities
             this.dbLocation = null;
         }
     
+        //Formats
+        public string ageStringFormat()
+        {
+            if (this.AgeMonth != -1 && this.AgeYear != -1)
+                return new DateTime(this.AgeYear, this.AgeMonth, 1).ToString("yyyy MMM");
+            else
+                return "Unknown";
+        }
+
+        public string timeInCaptivityStringFormat()
+        {
+            if (this.TimeInCaptivityMonth != -1 && this.TimeInCaptivityYear != -1)
+                return new DateTime(this.TimeInCaptivityYear, this.TimeInCaptivityMonth, 1).ToString("yyyy MMM");
+            else
+                return "Unknown";
+        }
+
+        //Actions
+
         public void addLike()
         {
             this.Likes++;

@@ -102,20 +102,6 @@ namespace IPM_Project.Models
                         }
                         break;
 
-                    case "COLOUR1":
-                        if (!string.IsNullOrEmpty(f.Value))
-                        {
-                            filteredDog = filteredDog.Where(x => x.Colour1.Equals(f.Value, StringComparison.InvariantCultureIgnoreCase)).ToList();
-                        }
-                        break;
-
-                    case "COLOUR2":
-                        if (!string.IsNullOrEmpty(f.Value))
-                        {
-                            filteredDog = filteredDog.Where(x => x.Colour2.Equals(f.Value, StringComparison.InvariantCultureIgnoreCase)).ToList();
-                        }
-                        break;
-
                     case "FUR":
                         if (!string.IsNullOrEmpty(f.Value))
                         {

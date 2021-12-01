@@ -37,26 +37,6 @@
 
         <br />
 
-        <div class="form-control">
-            @Html.Label("Colour 1:")
-            @Html.DropDownListFor(m => m.modelDog.Colour1, new List<SelectListItem>()
-                {
-                    new SelectListItem{Text = "Black", Value = "Black" },
-                    new SelectListItem{Text = "Brown", Value = "Brown" },
-                    new SelectListItem{Text = "White", Value = "White" },
-                    new SelectListItem{Text = "Red", Value = "Red" },
-                }, "Please Select the 1st Colour");
-       
-            @Html.Label("Colour 2:")
-            @Html.DropDownListFor(m => m.modelDog.Colour2, new List<SelectListItem>()
-                {
-                    new SelectListItem{Text = "Black", Value = "Black" },
-                    new SelectListItem{Text = "Brown", Value = "Brown" },
-                    new SelectListItem{Text = "White", Value = "White" },
-                    new SelectListItem{Text = "Red", Value = "Red" },
-                }, "Please Select the 2nd Colour");
-        </div>
-
     </div>
 
         <button type="submit" class="btn btn-primary">Search</button>
