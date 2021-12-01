@@ -59,10 +59,133 @@
         <input id="phone" name="phone" placeholder="Enter your contact" type="tel" required="required">
     </div>
 
+    <div class="block" style="margin:0 auto">
+
+        <p style="text-align:center">Do you intend to visit your godson frequently:</p>
+
+        <!-- Para o radio type funcionar corretamente, o campo name tem que ser igual em todas as opções!-->
+
+        <div id="radioGroup" style="margin:auto ; text-align:center">
+
+            <div class="wrap">
+                <label for="affirmative">Yes</label>
+                <input type="radio" name="intention" id="affirmative" value="yes" />
+            </div>
+
+            <div class="wrap">
+                <label for="negative">No</label>
+                <input type="radio" name="intention" id="negative" value="no" />
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="block" style="margin:0 auto">
+
+
+        <p style="text-align:center">Extra base value contributions:</p>
+
+        <div id="radioGroup" style="margin:auto ; text-align:center">
+
+            <div class="wrap">
+                <label for="vaccines">Vaccines</label>
+                <input type="checkbox" id="vaccines" name="extraContributions" value="vaccines">
+            </div>
+
+            <div class="wrap">
+                <label for="sterilization">Sterilization</label>
+                <input type="checkbox" id="sterilization" name="extraContributions" value="sterilization">
+            </div>
+
+            <div class="wrap">
+                <label for="treatments">Treatments</label>
+                <input type="checkbox" id="treatments" name="extraContributions" value="treatments">
+            </div>
+
+            <div class="wrap">
+                <label for="surgery">Surgery</label>
+                <input type="checkbox" id="surgery" name="extraContributions" value="surgery">
+            </div>
+
+            <div class="wrap">
+                <label for="bathAndShearing">Bath and Shearing</label>
+                <input type="checkbox" id="bathAndShearing" name="extraContributions" value="bathAndShearing">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="block" style="margin:0 auto">
+
+        <p style="text-align:center">For how much time do you intend to sponsor:</p>
+
+        <div id="radioGroup" style="margin:auto ; text-align:center">
+
+            <div class="wrap">
+                <label for="month">1 Month</label>
+                <input type="radio" name="timePeriod" id="month" value="month" />
+            </div>
+
+            <div class="wrap">
+                <label for="trimester">1 Trimester</label>
+                <input type="radio" name="timePeriod" id="trimester" value="trimester" />
+            </div>
+
+            <div class="wrap">
+                <label for="semester">1 Semester</label>
+                <input type="radio" name="timePeriod" id="semester" value="semester" />
+            </div>
+
+            <div class="wrap">
+                <label for="year">1 Year</label>
+                <input type="radio" name="timePeriod" id="year" value="year" />
+            </div>
+
+            <div class="wrap">
+                <label for="lifetime">Lifetime</label>
+                <input type="radio" name="timePeriod" id="lifetime" value="lifetime" />
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="block" style="margin:0 auto">
+
+        <p style="text-align:center">How do you intend to organize your sponsor payment schedule:</p>
+
+        <div id="radioGroup" style="margin:auto ; text-align:center">
+
+            <div class="wrap">
+                <label for="monthly">Monthly</label>
+                <input type="radio" name="paymentPeriod" id="monthly" value="monthly" />
+            </div>
+
+            <div class="wrap">
+                <label for="quarterly">Quarterly</label>
+                <input type="radio" name="paymentPeriod" id="quarterly" value="quarterly" />
+            </div>
+
+            <div class="wrap">
+                <label for="biannualy">Biannualy</label>
+                <input type="radio" name="paymentPeriod" id="biannualy" value="biannualy" />
+            </div>
+
+            <div class="wrap">
+                <label for="yearly">Yearly</label>
+                <input type="radio" name="paymentPeriod" id="yearly" value="yearly" />
+            </div>
+
+        </div>
+
+    </div>
 
     <div class="form-group row">
         <center>
             <button name="submit" type="submit" class="btn btn-primary">Submit</button>
         </center>
     </div>
+
 }

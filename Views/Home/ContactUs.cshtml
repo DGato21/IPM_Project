@@ -5,3 +5,21 @@
 
 <p class="h1">ContactUs</p>
 
+<style>
+    #m {
+        height: 403px;
+        width: 102%;
+    }
+</style>
+
+<div id="m"></div>
+<script>
+function initMap() {
+var loc = {lat: -26.334, lng: 132.034};
+var m1 = new google.maps.Map(document.getElementById('m'), {zoom: 3, center: loc});
+var mar = new google.maps.Marker({position: loc, map: m1});
+}
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>

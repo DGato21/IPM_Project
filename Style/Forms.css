@@ -35,6 +35,11 @@ label {
     margin: 0.5em auto;
 }
 
+payment {
+    background-color: #FEFFB0;
+    font-weight: bold;
+}
+
 button[type="submit"] {
     
 }

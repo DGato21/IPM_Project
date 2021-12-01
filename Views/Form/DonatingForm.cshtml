@@ -54,11 +54,43 @@
         <input id="phone" name="phone" placeholder="Enter your contact" type="tel" required="required">
     </div>
 
+    <div class="block">
+        <label for="donation">Donation</label>
+        <input class="payment" id="donation" name="payment" placeholder="Enter your donation (not required)" type="number" required="required" min="0">
+    </div>
 
+    <div class="block" style="margin:0 auto">
+
+
+        <p style="text-align:center">Please select the way you prefer to pay:</p>
+
+        <!-- Para o radio type funcionar corretamente, o campo name tem que ser igual em todas as opções!-->
+
+        <div id="radioGroup" style="margin:auto ; text-align:center">
+
+            <div class="wrap">
+                <label for="bankTransfer">Bank Transfer</label>
+                <input type="radio" name="paymentType" id="bankTransfer" value="bank" />
+            </div>
+
+            <div class="wrap">
+                <label for="MBWAY">MB Way</label>
+                <input type="radio" name="paymentType" id="MBWAY" value="mbWay" />
+            </div>
+
+            <div class="wrap">
+                <label for="PayPal">Paypal</label>
+                <input type="radio" name="paymentType" id="PayPal" value="paypal" />
+            </div>
+
+        </div>
+
+    </div>
 
     <div class="form-group row">
         <center>
             <button name="submit" type="submit" class="btn btn-primary">Submit</button>
         </center>
     </div>
+
 }
