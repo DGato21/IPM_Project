@@ -58,7 +58,25 @@ namespace IPM_Project.Controllers
                 //Load all the Dogs
                 dataManager = new DataManagement();
 
-                dataManager.LikeDog(id, -1);
+                dataManager.LikeDog(id, this.loginManager.GetCurrentUser());
+
+                //Return to Previous Page
+                return RedirectToAction("Dog", "Dogs", new { id = id });
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Follow(int id, string userId)
+        {
+            try
+            {
+                //Load all the Dogs
+                dataManager = new DataManagement();
+
+                dataManager.FollowDog(id, this.loginManager.GetCurrentUser());
 
                 //Return to Previous Page
                 return RedirectToAction("Dog", "Dogs", new { id = id });

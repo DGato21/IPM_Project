@@ -101,7 +101,7 @@ namespace IPM_Project.Controllers
             {
                 this.dataManager = new DataManagement();
 
-                dataManager.SubmitForm(form, type);
+                dataManager.SubmitForm(form, type, loginManager.GetCurrentUser());
 
                 ViewBag.Title = $"Form {type} submited sucessfully";
 
