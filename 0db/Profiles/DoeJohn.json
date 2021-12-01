@@ -1,0 +1,14 @@
+{
+  "username": "DoeJohn",
+  "name": "John Doe",
+  "gender": "Male",
+  "age": 21,
+  "birthday": "1996-10-10",
+  "following": [],
+  "godfather": [],
+  "isVolunteer": false,
+  "isDonner": false,
+  "isPartner": false,
+  "haveDog": false,
+  "dbLocation": null
+}

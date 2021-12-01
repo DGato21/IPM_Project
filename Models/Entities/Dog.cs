@@ -117,18 +117,38 @@ namespace IPM_Project.Models.Entities
         //Formats
         public string ageStringFormat()
         {
-            if (this.AgeMonth != -1 && this.AgeYear != -1)
-                return new DateTime(this.AgeYear, this.AgeMonth, 1).ToString("yyyy MMM");
-            else
-                return "Unknown";
+            string finalFormat = "Unknown";
+            if (this.AgeYear != -1)
+            {
+                finalFormat = $"{this.AgeYear} years";
+
+                if (this.AgeMonth > 0)
+                {
+                    finalFormat += " ( since ";
+                    finalFormat += new DateTime(DateTime.Today.Year - this.AgeYear, this.AgeMonth, 1).ToString("yyyy MMM");
+                    finalFormat += " )";
+                }
+            }
+
+            return finalFormat;
         }
 
         public string timeInCaptivityStringFormat()
         {
-            if (this.TimeInCaptivityMonth != -1 && this.TimeInCaptivityYear != -1)
-                return new DateTime(this.TimeInCaptivityYear, this.TimeInCaptivityMonth, 1).ToString("yyyy MMM");
-            else
-                return "Unknown";
+            string finalFormat = "Unknown";
+            if (this.TimeInCaptivityYear != -1)
+            {
+                finalFormat = $"{this.TimeInCaptivityYear} years";
+
+                if (this.TimeInCaptivityMonth > 0)
+                {
+                    finalFormat += " ( since ";
+                    finalFormat += new DateTime(DateTime.Today.Year - this.TimeInCaptivityYear, this.TimeInCaptivityMonth, 1).ToString("yyyy MMM");
+                    finalFormat += " )";
+                }
+            }
+
+            return finalFormat;
         }
 
         //Actions

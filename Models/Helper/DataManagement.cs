@@ -22,17 +22,21 @@ namespace IPM_Project.Models
         private const string FORMS_FOLDER = "Forms";
         //Logos
         private const string LOGOS_FOLDER = "Logos";
+        //Profiles
+        private const string PROFILES_FOLDER = "Profiles";
 
         private string mainDir;
 
         //Main App Variables (Static Loading for Now)
         private List<Dog> dogList { get; set; } 
+        private List<Profile> profileList { get; set; } 
         private Feed feed { get; set; }
 
         public DataManagement()
         {
             this.mainDir = System.Web.Hosting.HostingEnvironment.MapPath("~");
             this.dogList = new List<Dog>();
+            this.profileList = new List<Profile>();
             this.feed = new Feed();
         }
 
@@ -157,9 +161,32 @@ namespace IPM_Project.Models
 
         #endregion
 
+        #region Profile Endpoints
+
+        public Profile GetProfileById(string userId)
+        {
+            _loadAllUsers();
+            Profile profile = null;
+
+            var tmp = this.profileList.Where(x => x.Username.Equals(userId, StringComparison.InvariantCultureIgnoreCase));
+            if (tmp != null && tmp.Count() > 0)
+                profile = tmp.First();
+
+            return profile;
+        }
+
+        #endregion
+
         #region Feed Endpoints
 
         public Feed GetGeneralFeed()
+        {
+            _loadGeneralFeed();
+
+            return this.feed;
+        }
+
+        public Feed GetUserFeed(string userId)
         {
             _loadGeneralFeed();
 
@@ -209,7 +236,6 @@ namespace IPM_Project.Models
 
         #region Static Info Load
 
-        //TODO: IMPROVE ITERATIONS: BIPART IN 2 METHODs
         private void _loadStaticDogList()
         {
             //Directory Info
@@ -275,11 +301,32 @@ namespace IPM_Project.Models
             }
         }
 
+        //TODO
         private void _loadUserFeed(string userId)
         {
+            
+
+        }
+
+        private void _loadAllUsers()
+        {
             //Directory Info
-            List<string> dirs = Directory.GetDirectories($"{mainDir}\\{DB_MAINFOLDER}\\{FEED_GENERAL_FOLDER}",
-                                                          "*", SearchOption.AllDirectories).ToList();
+            string mainProfileDir = $"{mainDir}\\{DB_MAINFOLDER}\\{PROFILES_FOLDER}";
+
+            Profile profile = null;
+            //Get the Photos
+            List<string> profilesDir = Directory.GetFiles(mainProfileDir, "*.json", SearchOption.AllDirectories).ToList();
+            foreach (string path in profilesDir)
+            {
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    string json = sr.ReadToEnd();
+                    profile = JsonConvert.DeserializeObject<Profile>(json);
+                    profile.dbLocation = path;
+                    this.profileList.Add(profile);
+                }
+            }
+
         }
 
         #endregion

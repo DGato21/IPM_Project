@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using IPM_Project.Models;
 using IPM_Project.Models.Entities;
+using IPM_Project.Models.Helper;
 
 namespace IPM_Project.Controllers
 {
@@ -14,6 +15,13 @@ namespace IPM_Project.Controllers
     public class DogsController : Controller
     {
         DataManagement dataManager;
+        private LoginManagement loginManager;
+
+        public DogsController()
+        {
+            this.loginManager = new LoginManagement();
+            ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
+        }
 
         // GET: Dogs
         public ActionResult Index()
@@ -32,6 +40,8 @@ namespace IPM_Project.Controllers
                 dataManager = new DataManagement();
 
                 Dog dog = dataManager.GetDogById(id);
+
+                ViewBag.Title = $"{dog.Name}";
 
                 return View("Dog", dog);
             }

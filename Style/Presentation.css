@@ -1,0 +1,8 @@
+﻿#presentationPage {
+    outline: 20px;
+    outline-width: 20px;
+    border-radius: 25px;
+    border: 2px solid #0089FF;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}

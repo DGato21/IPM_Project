@@ -133,6 +133,7 @@
     <Compile Include="Models\Entities\Dog.cs" />
     <Compile Include="Models\Helper\FeedManagement.cs" />
     <Compile Include="Models\Helper\FormManagement.cs" />
+    <Compile Include="Models\Helper\LoginManagement.cs" />
     <Compile Include="Models\Helper\ProfileManagement.cs" />
     <Compile Include="Models\SpecificViewModels\AdoptViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -329,6 +330,7 @@
     <Content Include="0db\Dogs\MEDIUM\FEMALE\DORY\Dory.json" />
     <Content Include="0db\Dogs\BIG\FEMALE\INDIRA\Indira.json" />
     <Content Include="0db\Dogs\BIG\FEMALE\LIBERTY\Liberty.json" />
+    <Content Include="0db\Profiles\DoeJohn.json" />
     <None Include="Properties\PublishProfiles\IPMProject - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -343,6 +345,8 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Slideshow.js" />
     <Content Include="Style\Forms.css" />
+    <Content Include="Style\Homepage.css" />
+    <Content Include="Style\Presentation.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

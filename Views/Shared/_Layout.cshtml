@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@{
+    if (string.IsNullOrEmpty(ViewBag.Login))
+    {
+        ViewBag.Login = "Welcome Guest";
+    }
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,13 +24,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Adopt.Don't Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                <!-- 
-                    LINKABLE BUTTON INSTEAD OF TEXT
-                <a href="@Url.Action("Index", "Home", new { area = "" })">
-                    <img src="~/images/logo_big.PNG" alt="Adopt don't Shop"
-                         class="rounded mx-auto d-block" height="52px"/>
-                </a>
-                -->
+                <!--
+            LINKABLE BUTTON INSTEAD OF TEXT
+        <a href="@Url.Action("Index", "Home", new { area = "" })">
+            <img src="~/images/logo_big.PNG" alt="Adopt don't Shop"
+                 class="rounded mx-auto d-block" height="52px"/>
+        </a>
+        -->
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -33,6 +40,11 @@
                     <li>@Html.ActionLink("ContactUs", "ContactUs", "Home")</li>
                 </ul>
             </div>
+            <!--
+            <button type="button" class="btn navbar-btn login-btn" style="margin-right: auto">
+                @ViewBag.Login
+            </button>
+            -->
         </div>
     </div>
     <div class="container body-content">

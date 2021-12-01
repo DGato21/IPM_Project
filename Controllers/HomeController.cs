@@ -17,11 +17,19 @@ namespace IPM_Project.Controllers
     /// </summary>
     public class HomeController : Controller
     {
+        private LoginManagement loginManager;
         private FeedManagement feedManager;
+
+        public HomeController()
+        {
+            this.loginManager = new LoginManagement();
+            ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
+        }
 
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
+
 
             feedManager = new FeedManagement();
             Feed feed = feedManager.GetGeneralFeed();

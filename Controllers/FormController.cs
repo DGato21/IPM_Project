@@ -1,5 +1,6 @@
 ﻿using IPM_Project.Models;
 using IPM_Project.Models.Entities;
+using IPM_Project.Models.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,13 @@ namespace IPM_Project.Controllers
     public class FormController : Controller
     {
         private DataManagement dataManager;
+        private LoginManagement loginManager;
+
+        public FormController()
+        {
+            this.loginManager = new LoginManagement();
+            ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
+        }
 
         // GET: Form
         public ActionResult Index()

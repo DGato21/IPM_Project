@@ -1,5 +1,6 @@
 ﻿using IPM_Project.Models;
 using IPM_Project.Models.Entities;
+using IPM_Project.Models.Helper;
 using IPM_Project.Models.SpecificViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,13 @@ namespace IPM_Project.Controllers
     public class DataController : Controller
     {
         private DataManagement data;
+        private LoginManagement loginManager;
 
         public DataController()
         {
             data = new DataManagement();
+            this.loginManager = new LoginManagement();
+            ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
         }
 
         // GET: Data
