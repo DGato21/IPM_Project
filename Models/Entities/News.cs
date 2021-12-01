@@ -42,7 +42,7 @@ namespace IPM_Project.Models.Entities
             this.supporters = new List<Profile>();
             this.readers = new List<Profile>();
             this.publishTime = new DateTime();
-            this.figure = @"images/dognews_default.jpg";
+            this.figure = "../../images/dognews_default.jpg";
             this.news = "Loading...";
             this.title = "News Title Loading...";
 

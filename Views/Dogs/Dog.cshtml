@@ -17,12 +17,26 @@
                  class="rounded mx-auto d-block"
                  width="450"
                  height="300" />
+
             <div class="text-center">
+                <label for="Breed" class="col-4 col-form-label">Likes: </label>
+                <input readonly id="breed" name="breed" type="text" class="form-control" value="@Model.Likes.Count()">
+
                 <a href=@Url.Action("Like", "Dogs",new { id = Model.Id })
                    class="btn btn-primary btn-lg">
                     Like &raquo;
                 </a>
             </div>
+            <div class="text-center">
+                <label for="Breed" class="col-4 col-form-label">Followers: </label>
+                <input readonly id="breed" name="breed" type="text" class="form-control" value="@Model.Followers.Count()">
+
+                <a href=@Url.Action("Follow", "Dogs",new { id = Model.Id })
+                   class="btn btn-primary btn-lg">
+                    Follow &raquo;
+                </a>
+            </div>
+
         </div>
         <div class="col-md-6">
             <div class="form-group row">

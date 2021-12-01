@@ -40,7 +40,7 @@ namespace IPM_Project.Models
             this.feed = new Feed();
         }
 
-        #region Dogs Endpoints
+        #region Dogs Endpoints + Auxiliar Methods
 
         public List<Dog> GetAllDogs()
         {
@@ -137,23 +137,35 @@ namespace IPM_Project.Models
                 return tmpDogs[0];
         }
 
-        public void LikeDog(int dogId, int profileId)
+        public void LikeDog(int dogId, Profile user)
         {
             Dog dog = GetDogById(dogId);
 
-            dog.addLike();
+            dog.addLike(user);
 
             //TODO THE PART OF THE PROFILE
             _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
         }
 
-        private void SponsorDog(int dogId, int profileId)
+        public void FollowDog(int dogId, Profile user)
         {
             Dog dog = GetDogById(dogId);
 
-            //dog.sponsorDog(profileId);
+            dog.addFollow(user);
+            user.addFollowing(dog);
 
             //TODO THE PART OF THE PROFILE
+            _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
+        }
+
+        public void SponsorDog(int dogId, Profile user)
+        {
+            Dog dog = GetDogById(dogId);
+
+            dog.addSponsor(user);
+            user.addSponsoringDog(dog);
+
+            // TODO THE PART OF THE PROFILE
             _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
         }
 
@@ -197,13 +209,15 @@ namespace IPM_Project.Models
 
         #region Form Endpoints
 
-        public void SubmitForm(FormCollection form, string formType, int? dogId = null)
+        public void SubmitForm(FormCollection form, string formType, Profile user, int? dogId = null)
         {
             Dictionary<string, object> formDic = _convertFormToDic(form);
 
             string json = JsonConvert.SerializeObject(formDic);
 
             string now = DateTime.Now.ToString("yyyy-MM-dd_hh:mm:ss:ffff");
+
+            _executeFormActions(formType, dogId, user);
 
             //TODO: O SAVE NAO ESTA A FUNCIONAR POR CAUSA DE CAMINHO INVALIDO
 
@@ -215,7 +229,7 @@ namespace IPM_Project.Models
         }
 
         //TO FINISH
-        private void _executeFormActions(string formType, int? dogId)
+        private void _executeFormActions(string formType, int? dogId, Profile user)
         {
             //TODO_DR - Finish actions for each form
             /*
@@ -226,6 +240,8 @@ namespace IPM_Project.Models
                 case "AdoptDog":
                     break;
                 case "SponsorDog":
+                    if (dogId != null)
+                        SponsorDog((int)dogId, user);
                     break;
                 default:
                     break;

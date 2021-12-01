@@ -24,10 +24,10 @@ namespace IPM_Project.Models.Entities
         public DateTime Birthday;
 
         [JsonProperty("following")]
-        public List<string> Following;
+        public List<Dog> Following = new List<Dog>();
 
         [JsonProperty("godfather")]
-        public List<string> Godfather;
+        public List<Dog> Godfather = new List<Dog>();
 
         [JsonProperty("isVolunteer")]
         public bool IsVolunteer;
@@ -48,6 +48,17 @@ namespace IPM_Project.Models.Entities
         public Profile()
         {
 
+        }
+
+        //Actions
+        public void addFollowing(Dog dog)
+        {
+            this.Following.Add(dog);
+        }
+
+        public void addSponsoringDog(Dog dog)
+        {
+            this.Godfather.Add(dog);
         }
     }
 }

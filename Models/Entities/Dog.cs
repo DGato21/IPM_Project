@@ -50,7 +50,13 @@ namespace IPM_Project.Models.Entities
 
         //Specific App Info
         [JsonProperty("likes")]
-        public int Likes { get; set; } = 0;
+        public List<Profile> Likes { get; set; } = new List<Profile>();
+
+        [JsonProperty("followers")]
+        public List<Profile> Followers { get; set; } = new List<Profile>();
+
+        [JsonProperty("sponsors")]
+        public List<Profile> Sponsors { get; set; } = new List<Profile>();
 
         [JsonProperty("isAdopted")]
         public bool isAdopted { get; set; } = false;
@@ -62,7 +68,7 @@ namespace IPM_Project.Models.Entities
 
         public string dbLocation { get; set; }
 
-        public Dog (int id, string name, string category, string gender, int age, int likes, bool isAdopted, 
+        public Dog (int id, string name, string category, string gender, int age, bool isAdopted, 
             string breed, string fur, string location)
         {
             this.Id = id;
@@ -70,12 +76,14 @@ namespace IPM_Project.Models.Entities
             this.Category = category;
             this.Gender = gender;
             this.Age = age;
-            this.Likes = likes;
             this.isAdopted = isAdopted;
             this.Breed = breed;
             this.Fur = fur;
             this.Location = location;
 
+            this.Likes = new List<Profile>();
+            this.Followers = new List<Profile>();
+            this.Sponsors = new List<Profile>();
             this.Figures = new List<string>();
             this.Feed = new List<News>();
             this.dbLocation = null;
@@ -89,7 +97,6 @@ namespace IPM_Project.Models.Entities
             this.Gender = gender;
             //Default Info
             this.Age = -1;
-            this.Likes = 0;
             this.isAdopted = false;
 
             this.TimeInCaptivityMonth = -1;
@@ -103,6 +110,9 @@ namespace IPM_Project.Models.Entities
 
             this.Location = "unknown";
 
+            this.Likes = new List<Profile>();
+            this.Followers = new List<Profile>();
+            this.Sponsors = new List<Profile>();
             this.Figures = new List<string>();
             this.Feed = new List<News>();
             this.dbLocation = null;
@@ -153,9 +163,19 @@ namespace IPM_Project.Models.Entities
 
         //Actions
 
-        public void addLike()
+        public void addLike(Profile user)
         {
-            this.Likes++;
+            this.Likes.Add(user);
+        }
+
+        public void addFollow(Profile user)
+        {
+            this.Followers.Add(user);
+        }
+
+        public void addSponsor(Profile user)
+        {
+            this.Sponsors.Add(user);
         }
     }
 }
