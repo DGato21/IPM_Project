@@ -1,0 +1,23 @@
+{
+  "id": 9,
+  "name": "Framboesa",
+  "category": "SMALL",
+  "gender": "Female",
+  "ageYear": 2,
+  "ageMonth": 9,
+  "breed": "Mixed (Unknown)",
+  "fur": "Medium",
+  "location": "Enfermaria - BOX004",
+  "timeInCaptivityYear": 1,
+  "timeInCaptivityMonth": 0,
+  "description": "A Framboesa é uma pequenina raposinha, muito meguinha, calma e discreta. É tímida pelo que inicialmente parece não nos ligar nenhuma. Depois de receber alguma atenção e de ganhar alguma confiança, é mais leal das companheiras. A Framboesa procura uma casa onde possa viver toda a sua vida e onde a tratem com o respeito, cuidado e atenção que merece.",
+  "likes": 7,
+  "isAdopted": false,
+  "news": [
+    {
+      "title": "Canibalismo",
+      "news": "Ontem a Framboesa comeu uma framboesa! Parece ter gostado, mas preferia os biscoitos que o voluntário lhe deu mais tarde. As framboesas são seguras para os cães comerem, mas como tudo, em moderação. Têm anti-oxidantes, o que é muito bom para cães mais idosos. Felizmente, a Framboesa ainda é uma jovem cadela com muita vida pela frente!",
+      "publishTime": "2021-09-23T09:45:00"
+    }
+  ]
+}

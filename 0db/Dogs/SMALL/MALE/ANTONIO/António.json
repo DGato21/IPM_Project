@@ -1,0 +1,23 @@
+{
+  "id": 11,
+  "name": "António",
+  "category": "SMALL",
+  "gender": "Male",
+  "ageYear": 14,
+  "ageMonth": 9,
+  "breed": "Mixed (Unknown)",
+  "fur": "Short and Thick",
+  "location": "Enfermaria - CORREDOR_ACESSO",
+  "timeInCaptivityYear": 10,
+  "timeInCaptivityMonth": 1,
+  "description": "A Fufu tem das orelhas mais engraçadas que já se viu. Esta menina é muito curiosa e carismática apesar de ter receio do contacto com pessoas. Dá-se bem com outros cães. Ainda precisa de tempo e acompanhamento para perceber que ninguém lhe fará mal e que pode ter uma vida muito melhor.",
+  "likes": 56,
+  "isAdopted": false,
+  "news": [
+    {
+      "title": "António celebra o seu décimo ano na UZ",
+      "news": "Apesar de ser um aniversário, não é grande motivo para felicidade. Adoramos o António, mas a verdade é que ele seria mais feliz numa casa, com festinhas, muito amor, lençóis quentinhos e muitos biscoitos, especialmente agora nos seus últimos anos de vida. À medidade que os cães são mais velhos, são mais discriminados na adoção. Mas toda a gente que já teve com o António sabe que ele é um amorzinho e perfeito para ter ao colo!",
+      "publishTime": "2021-11-02T17:35:00"
+    }
+  ]
+}
