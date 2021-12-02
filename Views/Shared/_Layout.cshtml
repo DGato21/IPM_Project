@@ -19,7 +19,7 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar">Teste</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
@@ -32,6 +32,11 @@
         </a>
         -->
             </div>
+
+            <button type="button" class="btn navbar-btn login-btn navbar-right" style="margin-right: auto">
+                @ViewBag.Login
+            </button>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <!--<li>@Html.ActionLink("Home", "Index", "Home")</li>-->
@@ -40,11 +45,7 @@
                     <li>@Html.ActionLink("ContactUs", "ContactUs", "Home")</li>
                 </ul>
             </div>
-            <!--
-            <button type="button" class="btn navbar-btn login-btn" style="margin-right: auto">
-                @ViewBag.Login
-            </button>
-            -->
+
         </div>
     </div>
     <div class="container body-content">

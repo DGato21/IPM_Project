@@ -32,9 +32,16 @@ namespace IPM_Project.Controllers
 
 
             feedManager = new FeedManagement();
+            Feed mainFeed = new Feed();
             Feed feed = feedManager.GetGeneralFeed();
+            Feed userFeed = feedManager.GetUserFeed(this.loginManager.GetCurrentUser());
 
-            return View("Index", feed);
+            mainFeed.feedNews.AddRange(feed.feedNews);
+            mainFeed.feedNews.AddRange(userFeed.feedNews);
+
+            mainFeed.feedNews = mainFeed.feedNews.OrderBy(x => x.publishTime).ToList();
+
+            return View("Index", mainFeed);
         }
 
         public ActionResult Stage1()
