@@ -346,6 +346,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Slideshow.js" />
     <Content Include="Style\Forms.css" />
+    <Content Include="Style\ContactUs.css" />
     <Content Include="Style\Homepage.css" />
     <Content Include="Style\Presentation.css" />
     <Content Include="Web.config" />
