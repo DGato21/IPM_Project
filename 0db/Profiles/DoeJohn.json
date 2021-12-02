@@ -1,14 +1,1 @@
-{
-  "username": "DoeJohn",
-  "name": "John Doe",
-  "gender": "Male",
-  "age": 21,
-  "birthday": "1996-10-10",
-  "following": [],
-  "godfather": [],
-  "isVolunteer": false,
-  "isDonner": false,
-  "isPartner": false,
-  "haveDog": false,
-  "dbLocation": null
-}
+{"username":"DoeJohn","name":"John Doe","gender":"Male","age":21,"birthday":"1996-10-10T00:00:00","following":[2],"godfather":[],"isVolunteer":false,"isDonner":false,"isPartner":false,"haveDog":false,"dbLocation":"C:\\_FCTWorkspace\\IML\\IPM_Project\\\\0db\\Profiles\\DoeJohn.json"}

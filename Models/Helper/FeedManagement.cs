@@ -20,9 +20,9 @@ namespace IPM_Project.Models.Helper
             return this.dataManager.GetGeneralFeed();
         }
 
-        public Feed GetUserFeed(string userId)
+        public Feed GetUserFeed(Profile user)
         {
-            return this.dataManager.GetUserFeed(userId);
+            return this.dataManager.GetUserFeed(user);
         }
 
     }

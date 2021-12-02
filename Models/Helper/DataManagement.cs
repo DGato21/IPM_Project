@@ -156,6 +156,7 @@ namespace IPM_Project.Models
 
             //TODO THE PART OF THE PROFILE
             _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
+            _saveJson(JsonConvert.SerializeObject(user), user.dbLocation);
         }
 
         public void SponsorDog(int dogId, Profile user)
@@ -167,6 +168,7 @@ namespace IPM_Project.Models
 
             // TODO THE PART OF THE PROFILE
             _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
+            _saveJson(JsonConvert.SerializeObject(user), user.dbLocation);
         }
 
         //IDEIA: WHEN ADOPT, POST A NEWS
@@ -198,11 +200,22 @@ namespace IPM_Project.Models
             return this.feed;
         }
 
-        public Feed GetUserFeed(string userId)
+        public Feed GetUserFeed(Profile user)
         {
-            _loadGeneralFeed();
+            Feed userFeed = new Feed();
 
-            return this.feed;
+            try
+            {
+                foreach (int dogId in user.Following)
+                {
+                    Dog currentDog = GetDogById(dogId);
+
+                    userFeed.feedNews.AddRange(currentDog.Feed);
+                }
+            }
+            catch (Exception ex) {}
+
+            return userFeed;
         }
 
         #endregion
@@ -315,13 +328,6 @@ namespace IPM_Project.Models
                     this.feed = feed;
                 }
             }
-        }
-
-        //TODO
-        private void _loadUserFeed(string userId)
-        {
-            
-
         }
 
         private void _loadAllUsers()
