@@ -1,16 +1,34 @@
 {
   "newsFeed": [
     {
-      "title": "Noticia X Titulo",
+      "title": "Resgate",
       "fig": "images/dognews_default.jpg",
-      "news": "Noticia X",
+      "news": " Faz hoje dois anos que a União Zoófila, em coordenação com as forças policiais e outros parceiros (REFÚGIO ANIMAL ANGELS , Tico & Teco , O Cantinho da Milú e SOSAnimal - Grupo de Socorro Animal de Portugal, procedeu ao resgate de mais de 100 animais em risco de uma propriedade privada na Arruda dos Vinhos. Esta operação, com início às 5 da manhã, terminou já passava das 23h. Foi um dia longo. A preparação da mesma durou semanas e a logística obrigou-nos a pesadas despesas, inúmeros contactos com parceiros, recolha direccionada de fundos, e até a adaptar o abrigo fisicamente, de forma a podermos acolher dezenas de animais.",
+      "publishTime": "2021-11-27"
+    },
+    {
+      "title": "Eleições",
+      "fig": "images/dognews_default.jpg",
+      "news": "ELEIÇÕES PARA OS ÓRGÃOS DE GESTÃO E SOCIAIS DA ASSOCIAÇÃO UNIÃO ZOÓFILA👉 Mais informações e também para aceder à constituição e programa eleitoral das listas candidatas - uniaozoofila.org/eleicoes/ Nota: Para quem não esteja familiarizado com as dinâmicas diárias e constrangimentos do albergue, é de suma importância esclarecer, o motivo pelo qual a data escolhida para a realização do acto Eleitoral coincide com um dia de semana.",
+      "publishTime": "2021-11-27"
+    },
+    {
+      "title": "Loja Somos Por Eles",
+      "fig": "images/dognews_default.jpg",
+      "news": "🌲🎅 Sem ideias para este Natal? A gata Krisspi e os seus amigos do albergue podem ajudar. No site somosporeles.wordpress.com pode encontrar várias opções de presentes solidários para encantar a família e os amigos neste fim de ano.Há hoodies, canecas, livros, jogos… Os artigos disponíveis na lojinha Somos por Eles revertem inteiramente para os cães e gatos do albergue.👉 Veja as nossas sugestões e aproveite ainda o código especial de desconto UZNATAL21. Apresente-o no seu email de encomenda e beneficie de 10% de desconto nas suas compras em somosporeles.wordpress.com",
+      "publishTime": "2021-11-26"
+    },
+    {
+      "title": "Rifas de Natal",
+      "fig": "images/dognews_default.jpg",
+      "news": "🎅 Rifas de Natal da União Zoófila. Já têm as suas? Ao adquirir habilitam-se a ganhar um dos cinco cabazes de natal preparados pelos voluntários e repletos de coisas boas. E também estão a ajudar os cerca de 700 cães e gatos que aguardam por uma família na União Zoófila. 👉 Como participar: 1€ é o valor de cada rifa e há duas formas de adquirirem: - Diretamente no albergue da UZ (todos os dias entre as 14h e às 17h)- Através de uniaozoofila@gmail.com indicando o nº de rifas e os números escolhidos do 0000 ao 0999 (pedido mínimo de 5 rifas). O Sorteio será realizado no dia 24 de Dezembro às 12h 🐶 Eles agradecem a vossa ajuda!",
       "publishTime": "2021-11-28"
     },
     {
-      "title": "Noticia Y Titulo",
+      "title": "Aniversário",
       "fig": "images/dognews_default.jpg",
-      "news": "Noticia Y",
-      "publishTime": "2021-11-28"
+      "news": "🎈 Comemorações do 70º aniversário da União Zoófila! Neste mês de novembro, celebramos 70 anos de existência.",
+      "publishTime": "2021-11-1"
     }
   ]
 }
