@@ -296,8 +296,6 @@
     <Content Include="0db\Dogs\SMALL\MALE\TALISCA\15729.jpg" />
     <Content Include="0db\Dogs\SMALL\MALE\TALISCA\15729_2.jpg" />
     <Content Include="0db\Dogs\SMALL\MALE\TALISCA\15729_3.jpg" />
-    <Content Include="0db\Logos\Adopt. Don_t Shop-logo.png" />
-    <Content Include="0db\Logos\logo1.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -312,6 +310,9 @@
     <Content Include="images\dognews_default.jpg" />
     <Content Include="images\Dogs_Adopt_Background.jpeg" />
     <Content Include="images\donate.jpg" />
+    <Content Include="images\follow.png" />
+    <Content Include="images\follow2.png" />
+    <Content Include="images\like.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo_big.PNG" />
     <Content Include="images\partner.jpg" />

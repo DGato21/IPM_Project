@@ -50,13 +50,13 @@ namespace IPM_Project.Models.Entities
 
         //Specific App Info
         [JsonProperty("likes")]
-        public List<Profile> Likes { get; set; } = new List<Profile>();
+        public HashSet<string> Likes { get; set; } = new HashSet<string>();
 
         [JsonProperty("followers")]
-        public List<Profile> Followers { get; set; } = new List<Profile>();
+        public HashSet<string> Followers { get; set; } = new HashSet<string>();
 
         [JsonProperty("sponsors")]
-        public List<Profile> Sponsors { get; set; } = new List<Profile>();
+        public HashSet<string> Sponsors { get; set; } = new HashSet<string>();
 
         [JsonProperty("isAdopted")]
         public bool isAdopted { get; set; } = false;
@@ -64,7 +64,7 @@ namespace IPM_Project.Models.Entities
         [JsonProperty("news")]
         public List<News> Feed { get; set; } = new List<News>();
 
-        public List<string> Figures { get; set; } = new List<string>();
+        public HashSet<string> Figures { get; set; } = new HashSet<string>();
 
         public string dbLocation { get; set; }
 
@@ -81,10 +81,10 @@ namespace IPM_Project.Models.Entities
             this.Fur = fur;
             this.Location = location;
 
-            this.Likes = new List<Profile>();
-            this.Followers = new List<Profile>();
-            this.Sponsors = new List<Profile>();
-            this.Figures = new List<string>();
+            this.Likes = new HashSet<string>();
+            this.Followers = new HashSet<string>();
+            this.Sponsors = new HashSet<string>();
+            this.Figures = new HashSet<string>();
             this.Feed = new List<News>();
             this.dbLocation = null;
         }
@@ -110,10 +110,10 @@ namespace IPM_Project.Models.Entities
 
             this.Location = "unknown";
 
-            this.Likes = new List<Profile>();
-            this.Followers = new List<Profile>();
-            this.Sponsors = new List<Profile>();
-            this.Figures = new List<string>();
+            this.Likes = new HashSet<string>();
+            this.Followers = new HashSet<string>();
+            this.Sponsors = new HashSet<string>();
+            this.Figures = new HashSet<string>();
             this.Feed = new List<News>();
             this.dbLocation = null;
         }
@@ -165,17 +165,17 @@ namespace IPM_Project.Models.Entities
 
         public void addLike(Profile user)
         {
-            this.Likes.Add(user);
+            this.Likes.Add(user.Username);
         }
 
         public void addFollow(Profile user)
         {
-            this.Followers.Add(user);
+            this.Followers.Add(user.Username);
         }
 
         public void addSponsor(Profile user)
         {
-            this.Sponsors.Add(user);
+            this.Sponsors.Add(user.Username);
         }
     }
 }

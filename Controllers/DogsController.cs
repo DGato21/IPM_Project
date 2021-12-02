@@ -69,7 +69,7 @@ namespace IPM_Project.Controllers
             }
         }
 
-        public ActionResult Follow(int id, string userId)
+        public ActionResult Follow(int id)
         {
             try
             {
@@ -81,8 +81,8 @@ namespace IPM_Project.Controllers
                 //Return to Previous Page
                 return RedirectToAction("Dog", "Dogs", new { id = id });
             }
-            catch
-            {
+            catch (Exception ex)
+            { 
                 return View();
             }
         }

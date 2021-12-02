@@ -24,10 +24,10 @@ namespace IPM_Project.Models.Entities
         public DateTime Birthday;
 
         [JsonProperty("following")]
-        public List<Dog> Following = new List<Dog>();
+        public HashSet<int> Following = new HashSet<int>();
 
         [JsonProperty("godfather")]
-        public List<Dog> Godfather = new List<Dog>();
+        public HashSet<int> Godfather = new HashSet<int>();
 
         [JsonProperty("isVolunteer")]
         public bool IsVolunteer;
@@ -53,12 +53,12 @@ namespace IPM_Project.Models.Entities
         //Actions
         public void addFollowing(Dog dog)
         {
-            this.Following.Add(dog);
+            this.Following.Add(dog.Id);
         }
 
         public void addSponsoringDog(Dog dog)
         {
-            this.Godfather.Add(dog);
+            this.Godfather.Add(dog.Id);
         }
     }
 }

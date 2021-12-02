@@ -55,7 +55,7 @@
                 {
                     <div id="DogCol0" class="col-md-4">
                         <a href="@Url.Action("Dog", "Dogs", new { id = row[0].Id })">
-                            <img src="~/@row[0].Figures[0]" alt="@row[0].Name" 
+                            <img src="~/@row[0].Figures.First()" alt="@row[0].Name" 
                                  class="rounded mx-auto d-block"  
                                  width="200" height="200"/>
                         </a>
@@ -68,7 +68,7 @@
                 {
                     <div id="DogCol1" class="col-md-4">
                         <a href="@Url.Action("Dog", "Dogs", new { id = row[1].Id })">
-                            <img src="~/@row[1].Figures[0]" alt="@row[1].Name" 
+                            <img src="~/@row[1].Figures.First()" alt="@row[1].Name" 
                                  class="rounded mx-auto d-block" 
                                  width="200" height="200"/>
                         </a>
@@ -80,7 +80,7 @@
                 {
                     <div id="DogCol2" class="col-md-4">
                         <a href="@Url.Action("Dog", "Dogs", new { id = row[2].Id })">
-                            <img src="~/@row[2].Figures[0]" alt="@row[2].Name" 
+                            <img src="~/@row[2].Figures.First()" alt="@row[2].Name" 
                                  class="rounded mx-auto d-block" 
                                  width="200" height="200"/>
                         </a>

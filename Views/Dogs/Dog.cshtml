@@ -13,26 +13,33 @@
     <!-- DOG -->
     <div class="modal-body row" style="display: flex;">
         <div class="col-md-6">
-            <img src="~/@Model.Figures[0]" alt="@Model.Name"
+            <img src="~/@Model.Figures.First()" alt="@Model.Name"
                  class="rounded mx-auto d-block"
                  width="450"
                  height="300" />
 
+            <br />
+
             <div class="text-center">
                 <label for="Breed" class="col-4 col-form-label">Likes: </label>
-                <input readonly id="breed" name="breed" type="text" class="form-control" value="@Model.Likes.Count()">
+                <input readonly id="breed" name="breed" type="text" value="@Model.Likes.Count()">
 
-                <a href=@Url.Action("Like", "Dogs",new { id = Model.Id })
-                   class="btn btn-primary btn-lg">
+                <a href=@Url.Action("Like", "Dogs",new { id = Model.Id })>
+                    <img src="~/images/like.jpg" alt="Like"
+                         class="rounded mx-auto d-block"
+                         width="48" height="48" />
                     Like &raquo;
                 </a>
             </div>
+            <br />
             <div class="text-center">
                 <label for="Breed" class="col-4 col-form-label">Followers: </label>
-                <input readonly id="breed" name="breed" type="text" class="form-control" value="@Model.Followers.Count()">
+                <input readonly id="breed" name="breed" type="text" value="@Model.Followers.Count()">
 
-                <a href=@Url.Action("Follow", "Dogs",new { id = Model.Id })
-                   class="btn btn-primary btn-lg">
+                <a href=@Url.Action("Follow", "Dogs",new { id = Model.Id })>
+                    <img src="~/images/follow2.png" alt="Follow"
+                         class="rounded mx-auto d-block"
+                         width="48" height="36" />
                     Follow &raquo;
                 </a>
             </div>
@@ -112,7 +119,7 @@
                     </div>
                     <br />
                     <div class="text-right">
-                        <small>Likes: @row.supporters.Count()</small>
+                        <small>Likes: @row.likes.Count()</small>
                         <br />
                         <small>@row.publishTime</small>
                     </div>
