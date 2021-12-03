@@ -23,7 +23,7 @@ namespace IPM_Project.Controllers
         public HomeController()
         {      
             this.loginManager = new LoginManagement();
-            //ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
+            ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
         }
 
         public ActionResult Index()
