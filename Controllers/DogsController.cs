@@ -18,7 +18,7 @@ namespace IPM_Project.Controllers
         private LoginManagement loginManager;
 
         public DogsController()
-        {
+        {           
             this.loginManager = new LoginManagement();
             ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
         }
@@ -38,6 +38,7 @@ namespace IPM_Project.Controllers
             {
                 //Load all the Dogs
                 dataManager = new DataManagement();
+    
 
                 Dog dog = dataManager.GetDogById(id);
 
@@ -57,6 +58,7 @@ namespace IPM_Project.Controllers
             {
                 //Load all the Dogs
                 dataManager = new DataManagement();
+    
 
                 dataManager.LikeDog(id, this.loginManager.GetCurrentUser());
 
@@ -75,6 +77,7 @@ namespace IPM_Project.Controllers
             {
                 //Load all the Dogs
                 dataManager = new DataManagement();
+    
 
                 dataManager.FollowDog(id, this.loginManager.GetCurrentUser());
 
@@ -87,20 +90,5 @@ namespace IPM_Project.Controllers
             }
         }
 
-        // POST: Dogs/Edit/5
-        [HttpPost]
-        public ActionResult Adopt(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

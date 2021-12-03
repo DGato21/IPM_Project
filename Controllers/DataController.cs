@@ -2,6 +2,7 @@
 using IPM_Project.Models.Entities;
 using IPM_Project.Models.Helper;
 using IPM_Project.Models.SpecificViewModels;
+using Microsoft.AspNetCore.Http.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace IPM_Project.Controllers
 
         public DataController()
         {
+            
             data = new DataManagement();
             this.loginManager = new LoginManagement();
             ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
@@ -25,11 +27,15 @@ namespace IPM_Project.Controllers
         // GET: Data
         public ActionResult Index()
         {
+
+
             return View();
         }
 
         public ActionResult SearchDogs(FormCollection collection = null)
         {
+
+
             ViewBag.Title = "ListDogs";
 
             ViewBag.Message = "Form Received:\n";

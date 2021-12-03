@@ -25,7 +25,7 @@ namespace IPM_Project.Models
         //Profiles
         private const string PROFILES_FOLDER = "Profiles";
 
-        private string mainDir;
+        private string mainUrl;
 
         //Main App Variables (Static Loading for Now)
         private List<Dog> dogList { get; set; } 
@@ -34,11 +34,13 @@ namespace IPM_Project.Models
 
         public DataManagement()
         {
-            this.mainDir = System.Web.Hosting.HostingEnvironment.MapPath("~");
+            this.mainUrl = HttpRuntime.AppDomainAppPath;
+
             this.dogList = new List<Dog>();
             this.profileList = new List<Profile>();
             this.feed = new Feed();
         }
+
 
         #region Dogs Endpoints + Auxiliar Methods
 
@@ -234,11 +236,10 @@ namespace IPM_Project.Models
 
             //TODO: O SAVE NAO ESTA A FUNCIONAR POR CAUSA DE CAMINHO INVALIDO
 
-            string fileName = $"{formType.ToUpperInvariant()}_{now}.json";
+            string fileName = $"{formType}_{DateTime.Now.Ticks}.json";
             string path = $"{DB_MAINFOLDER}\\{FORMS_FOLDER}\\{fileName}";
-            string finalPath = Path.Combine(mainDir, path);
 
-            _saveJson(json, finalPath);
+            _saveJson(json, path);
         }
 
         //TO FINISH
@@ -267,9 +268,11 @@ namespace IPM_Project.Models
 
         private void _loadStaticDogList()
         {
+            string pathDir = $"{mainUrl}\\{ DB_MAINFOLDER}\\{DOGS_FOLDER}";
+
             //Directory Info
-            List<string> dirs = Directory.GetDirectories($"{mainDir}\\{DB_MAINFOLDER}\\{DOGS_FOLDER}", 
-                                                          "*", SearchOption.AllDirectories).ToList();
+            List<string> dirs = Directory.GetDirectories(pathDir, 
+                                                         "*", SearchOption.AllDirectories).ToList();
 
             foreach (string dir in dirs)
             {
@@ -277,7 +280,7 @@ namespace IPM_Project.Models
                 string category = string.Empty;
                 string sex = string.Empty;
 
-                string mainSubString = dir.Replace(mainDir, "").Replace($"\\{DB_MAINFOLDER}", "").Replace($"\\{DOGS_FOLDER}\\", "");
+                string mainSubString = dir.Replace(mainUrl, "").Replace($"\\{DB_MAINFOLDER}", "").Replace($"\\{DOGS_FOLDER}\\", "");
 
                 string[] strSplit = mainSubString.Split('\\');
 
@@ -290,20 +293,23 @@ namespace IPM_Project.Models
 
                     //Get the Photos
                     List<string> dogDir = Directory.GetFiles(dir, "*.json", SearchOption.AllDirectories).ToList();
+                    //If no Json configured, ignore and proceed
+                    if (dogDir.Count == 0)
+                        continue;
                     foreach (string dogInfo in dogDir)
                     {
                         using (StreamReader sr = new StreamReader(dogInfo))
                         {
                             string json = sr.ReadToEnd();
                             dog = JsonConvert.DeserializeObject<Dog>(json);
-                            dog.dbLocation = dogInfo;
+                            dog.dbLocation = _getRelativePath(dogInfo);
                         }
                     }
 
                     //Get the Photos
                     List<string> photosDir = Directory.GetFiles(dir, "*.jpg", SearchOption.AllDirectories).ToList();
                     foreach (string photo in photosDir)
-                        dog.Figures.Add(photo.Replace($"{mainDir}\\", ""));
+                        dog.Figures.Add(_getRelativePath(photo));
 
                     this.dogList.Add(dog);
                 }
@@ -312,7 +318,7 @@ namespace IPM_Project.Models
 
         private void _loadGeneralFeed()
         {
-            string dir = $"{mainDir}\\{DB_MAINFOLDER}\\{FEED_MAIN_FOLDER}";
+            string dir = $"{mainUrl}\\{ DB_MAINFOLDER}\\{FEED_MAIN_FOLDER}";
 
             //Get the Photos
             List<string> generalFeedDir = Directory.GetFiles(dir, "*.json", SearchOption.AllDirectories).ToList();
@@ -333,7 +339,7 @@ namespace IPM_Project.Models
         private void _loadAllUsers()
         {
             //Directory Info
-            string mainProfileDir = $"{mainDir}\\{DB_MAINFOLDER}\\{PROFILES_FOLDER}";
+            string mainProfileDir = $"{mainUrl}\\{DB_MAINFOLDER}\\{PROFILES_FOLDER}";
 
             Profile profile = null;
             //Get the Photos
@@ -344,7 +350,7 @@ namespace IPM_Project.Models
                 {
                     string json = sr.ReadToEnd();
                     profile = JsonConvert.DeserializeObject<Profile>(json);
-                    profile.dbLocation = path;
+                    profile.dbLocation = _getRelativePath(path);
                     this.profileList.Add(profile);
                 }
             }
@@ -353,11 +359,26 @@ namespace IPM_Project.Models
 
         #endregion
 
+        #region Utilities Methods
+
+        private string _getRelativePath(string fullPath)
+        {
+            string relativePath = string.Empty;
+
+            relativePath = fullPath.Replace(this.mainUrl, "");
+            relativePath = relativePath.Substring(relativePath.IndexOf("\\")+1);
+
+            return relativePath;
+        }
+
+        #endregion
+
         #region Utilities DB Methods
 
-        private void _saveJson(string json, string path)
+        private void _saveJson(string json, string relativePath)
         {
-            FileInfo file = new FileInfo(path);
+            string finalPath = Path.Combine(this.mainUrl + relativePath);
+            FileInfo file = new FileInfo(finalPath);
 
             if (file.Exists)
             {
@@ -382,5 +403,6 @@ namespace IPM_Project.Models
         }
 
         #endregion
+    
     }
 }

@@ -13,6 +13,7 @@ namespace IPM_Project.Controllers
 
         public ProfileController()
         {
+            
             this.loginManager = new LoginManagement();
             ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
         }

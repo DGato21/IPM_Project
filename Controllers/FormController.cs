@@ -34,6 +34,7 @@ namespace IPM_Project.Controllers
             {
                 //Load all the Dogs
                 dataManager = new DataManagement();
+    
 
                 Dog dog = dataManager.GetDogById(dogId);
 
@@ -53,6 +54,7 @@ namespace IPM_Project.Controllers
             {
                 //Load all the Dogs
                 dataManager = new DataManagement();
+    
 
                 Dog dog = dataManager.GetDogById(dogId);
 
@@ -100,6 +102,7 @@ namespace IPM_Project.Controllers
             try
             {
                 this.dataManager = new DataManagement();
+    
 
                 dataManager.SubmitForm(form, type, loginManager.GetCurrentUser());
 
