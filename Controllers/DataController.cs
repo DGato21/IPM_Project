@@ -27,15 +27,11 @@ namespace IPM_Project.Controllers
         // GET: Data
         public ActionResult Index()
         {
-
-
             return View();
         }
 
         public ActionResult SearchDogs(FormCollection collection = null)
         {
-
-
             ViewBag.Title = "ListDogs";
 
             ViewBag.Message = "Form Received:\n";
@@ -66,7 +62,7 @@ namespace IPM_Project.Controllers
             foreach(Dog d in dogs)
             {
                 subList.Add(d);
-                if (i == AdoptViewModel.DOGS_PER_ROW)
+                if (i == AdoptViewModel.DOGS_PER_ROW || i == dogs.Count)
                 {
                     //Add the Dog List & Clear Vars
                     i = 1;
