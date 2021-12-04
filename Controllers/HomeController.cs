@@ -38,7 +38,7 @@ namespace IPM_Project.Controllers
             mainFeed.feedNews.AddRange(feed.feedNews);
             mainFeed.feedNews.AddRange(userFeed.feedNews);
 
-            mainFeed.feedNews = mainFeed.feedNews.OrderBy(x => x.publishTime).ToList();
+            mainFeed.feedNews = mainFeed.feedNews.OrderByDescending(x => x.publishTime).ToList();
 
             return View("Index", mainFeed);
         }

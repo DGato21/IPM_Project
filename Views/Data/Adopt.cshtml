@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="~/Style/Adopt.css">
 
 <p class="h1" style="text-align: center">Our Dogs</p>
-<p>This our dogs. It's for them that we put all the work. Check them out and visit their personal pages.</p>
+<p style="text-align: center">These are our dogs. It's for them that we put in all the work. Check them out and visit their personal pages if would like!</p>
 
 <hr />
 
@@ -26,18 +26,20 @@
                 new SelectListItem{Text = "Big", Value = "BIG" },
                 new SelectListItem{Text = "Medium", Value = "MEDIUM" },
                 new SelectListItem{Text = "Small", Value = "SMALL" }
-            }, "Please Select Dog Size");
+            }, "Please Select Dog Size")
         &nbsp;&nbsp;&nbsp;
         @Html.Label("Gender:")
         @Html.DropDownListFor(m => m.modelDog.Gender, new List<SelectListItem>()
             {
                 new SelectListItem{Text = "Male", Value = "MALE" },
                 new SelectListItem{Text = "Female", Value = "FEMALE" },
-            }, "Please Select the Gender");
+            }, "Please Select the Gender")
     </div>
     <br />
-    <button type="submit" class="btn btn-primary" style="text-align: center;
-                                                        margin: 0;position: absolute;">
+
+
+
+    <button type="submit" class="btn btn-primary" style="text-align: center; margin-left: 43%;position: absolute;">
         Search
     </button>
 </div>
