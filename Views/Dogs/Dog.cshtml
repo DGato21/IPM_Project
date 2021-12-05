@@ -24,7 +24,7 @@
                 <label for="Breed" class="l">Likes: </label>
                 <label for="Breed" class="">@Model.Likes.Count()</label>
                 <br />
-                @if (!Model.Followers.Contains(ViewBag.User))
+                @if (!Model.Likes.Contains(ViewBag.User))
                 {
                     <a href=@Url.Action("Like", "Dogs",new { id = Model.Id })>
                         Like &raquo;
@@ -48,7 +48,7 @@
                 }
                 else
                 {
-                    <a href=@Url.Action("UnFollow", "Dogs",new { id = Model.Id })>
+                    <a href=@Url.Action("Unfollow", "Dogs",new { id = Model.Id })>
                         Unfollow &raquo;
                     </a>
                 }
