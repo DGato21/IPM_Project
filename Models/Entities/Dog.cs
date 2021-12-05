@@ -168,9 +168,19 @@ namespace IPM_Project.Models.Entities
             this.Likes.Add(user.Username);
         }
 
+        public void removeLike(Profile user)
+        {
+            this.Likes.Remove(user.Username);
+        }
+
         public void addFollow(Profile user)
         {
             this.Followers.Add(user.Username);
+        }
+
+        public void removeFollow(Profile user)
+        {
+            this.Followers.Remove(user.Username);
         }
 
         public void addSponsor(Profile user)

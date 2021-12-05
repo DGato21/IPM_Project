@@ -56,6 +56,11 @@ namespace IPM_Project.Models.Entities
             this.Following.Add(dog.Id);
         }
 
+        public void removeFollowing(Dog dog)
+        {
+            this.Following.Remove(dog.Id);
+        }
+
         public void addSponsoringDog(Dog dog)
         {
             this.Godfather.Add(dog.Id);

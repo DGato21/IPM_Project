@@ -62,7 +62,7 @@
                     <figure class="figure">
                         <a href="@Url.Action("Dog", "Dogs", new { id = row[0].Id })">
                             <img src="~/@row[0].Figures.First()" alt="@row[0].Name"
-                                 class="figure-img img-fluid rounded img-circle" />
+                                 class="figure-img img-fluid" />
                         </a>
                         <br />
                         @Html.Label(row[0].Name)
@@ -77,7 +77,7 @@
                     <figure class="figure">
                         <a href="@Url.Action("Dog", "Dogs", new { id = row[1].Id })">
                             <img src="~/@row[1].Figures.First()" alt="@row[1].Name"
-                                 class="figure-img img-fluid rounded img-circle" />
+                                 class="figure-img img-fluid" />
                         </a>
                         <br />
                         @Html.Label(row[1].Name)
@@ -91,7 +91,7 @@
                     <figure class="figure">
                         <a href="@Url.Action("Dog", "Dogs", new { id = row[2].Id })">
                             <img src="~/@row[2].Figures.First()" alt="@row[2].Name"
-                                 class="figure-img img-fluid rounded img-circle" />
+                                 class="figure-img img-fluid" />
                         </a>
                         <br />
                         @Html.Label(row[2].Name)

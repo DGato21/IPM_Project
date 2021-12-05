@@ -12,40 +12,52 @@
 <div class="container-fluid" id="presentationPage">
     <!-- DOG -->
     <div class="modal-body row" style="display: flex;">
-        <div class="col-md-6">
+        <!-- Dog Photo -->
+        <div class="col-md-6" id="dogPhoto">
             <img src="~/@Model.Figures.First()" alt="@Model.Name"
-                 class="rounded mx-auto d-block"
-                 width="450"
-                 height="300" />
+                 class="rounded mx-auto d-block" />
 
+            <br />
             <br />
 
             <div class="text-center">
-                <label for="Breed" class="col-4 col-form-label">Likes: </label>
-                <input readonly id="breed" name="breed" type="text" value="@Model.Likes.Count()">
-
-                <a href=@Url.Action("Like", "Dogs",new { id = Model.Id })>
-                    <img src="~/images/like.jpg" alt="Like"
-                         class="rounded mx-auto d-block"
-                         width="48" height="48" />
-                    Like &raquo;
-                </a>
+                <label for="Breed" class="l">Likes: </label>
+                <label for="Breed" class="">@Model.Likes.Count()</label>
+                <br />
+                @if (!Model.Followers.Contains(ViewBag.User))
+                {
+                    <a href=@Url.Action("Like", "Dogs",new { id = Model.Id })>
+                        Like &raquo;
+                    </a>
+                }
+                else
+                {
+                    <p>Already Liked</p>
+                }
             </div>
             <br />
             <div class="text-center">
                 <label for="Breed" class="col-4 col-form-label">Followers: </label>
-                <input readonly id="breed" name="breed" type="text" value="@Model.Followers.Count()">
-
-                <a href=@Url.Action("Follow", "Dogs",new { id = Model.Id })>
-                    <img src="~/images/follow2.png" alt="Follow"
-                         class="rounded mx-auto d-block"
-                         width="48" height="36" />
-                    Follow &raquo;
-                </a>
+                <label for="Breed" class="col-4 col-form-label">@Model.Followers.Count() </label>
+                <br />
+                @if (!Model.Followers.Contains(ViewBag.User))
+                {
+                    <a href=@Url.Action("Follow", "Dogs",new { id = Model.Id })>
+                        Follow &raquo;
+                    </a>
+                }
+                else
+                {
+                    <a href=@Url.Action("UnFollow", "Dogs",new { id = Model.Id })>
+                        Unfollow &raquo;
+                    </a>
+                }
             </div>
 
         </div>
-        <div class="col-md-6">
+
+        <!-- Dog Info-->
+        <div class="col-md-6" id="dogInfo">
             <div class="form-group row">
                 <label for="Breed" class="col-4 col-form-label">Breed</label>
                 <input readonly id="breed" name="breed" type="text" class="form-control" value="@Model.Breed">
@@ -119,8 +131,6 @@
                     </div>
                     <br />
                     <div class="text-right">
-                        <small>Likes: @row.likes.Count()</small>
-                        <br />
                         <small>@row.publishTime</small>
                     </div>
                     <br />

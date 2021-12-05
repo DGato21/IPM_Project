@@ -38,15 +38,15 @@ namespace IPM_Project.Controllers
             {
                 //Load all the Dogs
                 dataManager = new DataManagement();
-    
 
                 Dog dog = dataManager.GetDogById(id);
 
+                ViewBag.User = this.loginManager.GetCurrentUser().Username;
                 ViewBag.Title = $"{dog.Name}";
 
                 return View("Dog", dog);
             }
-            catch
+            catch (Exception)
             {
                 return View();
             }
@@ -58,14 +58,14 @@ namespace IPM_Project.Controllers
             {
                 //Load all the Dogs
                 dataManager = new DataManagement();
-    
 
+                ViewBag.User = this.loginManager.GetCurrentUser().Username;
                 dataManager.LikeDog(id, this.loginManager.GetCurrentUser());
 
                 //Return to Previous Page
                 return RedirectToAction("Dog", "Dogs", new { id = id });
             }
-            catch
+            catch (Exception)
             {
                 return View();
             }
@@ -77,15 +77,34 @@ namespace IPM_Project.Controllers
             {
                 //Load all the Dogs
                 dataManager = new DataManagement();
-    
 
+                ViewBag.User = this.loginManager.GetCurrentUser().Username;
                 dataManager.FollowDog(id, this.loginManager.GetCurrentUser());
 
                 //Return to Previous Page
                 return RedirectToAction("Dog", "Dogs", new { id = id });
             }
-            catch (Exception ex)
+            catch (Exception)
             { 
+                return View();
+            }
+        }
+
+        public ActionResult Unfollow(int id)
+        {
+            try
+            {
+                //Load all the Dogs
+                dataManager = new DataManagement();
+
+                ViewBag.User = this.loginManager.GetCurrentUser().Username;
+                dataManager.UnfollowDog(id, this.loginManager.GetCurrentUser());
+
+                //Return to Previous Page
+                return RedirectToAction("Dog", "Dogs", new { id = id });
+            }
+            catch (Exception)
+            {
                 return View();
             }
         }

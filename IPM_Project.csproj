@@ -357,13 +357,13 @@
     <Content Include="images\Dogs_Adopt_Background.jpeg" />
     <Content Include="images\donate.jpg" />
     <Content Include="images\follow.png" />
-    <Content Include="images\follow2.png" />
-    <Content Include="images\like.jpg" />
+    <Content Include="images\like.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo_big.PNG" />
     <Content Include="images\partner.jpg" />
     <Content Include="images\People_HelpUs_Background.jpeg" />
     <Content Include="images\surrenderDog.jpg" />
+    <Content Include="images\unfollow.png" />
     <Content Include="images\volunteer.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -428,6 +428,7 @@
   <ItemGroup>
     <Folder Include="0db\Forms\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Views\News\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

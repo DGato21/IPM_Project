@@ -55,5 +55,10 @@ namespace IPM_Project.Models.Entities
         {
             this.likes.Add(user.Username);
         }
+
+        public void removeLike(Profile user)
+        {
+            this.likes.Remove(user.Username);
+        }
     }
 }

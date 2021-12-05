@@ -161,6 +161,18 @@ namespace IPM_Project.Models
             _saveJson(JsonConvert.SerializeObject(user), user.dbLocation);
         }
 
+        public void UnfollowDog(int dogId, Profile user)
+        {
+            Dog dog = GetDogById(dogId);
+
+            dog.removeFollow(user);
+            user.removeFollowing(dog);
+
+            //TODO THE PART OF THE PROFILE
+            _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
+            _saveJson(JsonConvert.SerializeObject(user), user.dbLocation);
+        }
+
         public void SponsorDog(int dogId, Profile user)
         {
             Dog dog = GetDogById(dogId);
