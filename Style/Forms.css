@@ -1,0 +1,45 @@
+﻿form {
+    border-radius: 25px;
+    border: 2px solid #0089FF;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+input[type=text]
+{
+    text-align: center;
+    align-self: center;
+}
+
+div {
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+}
+
+#radioGroup .wrap {
+    display: inline-block;
+}
+
+#radioGroup label {
+    display: block;
+    text-align: center;
+    margin: 0 0.2em;
+}
+
+#radioGroup input[type="radio"] {
+    display: block;
+    margin: 0.5em auto;
+}
+
+payment {
+    background-color: #FEFFB0;
+    font-weight: bold;
+}
+
+button[type="submit"] {
+    
+}

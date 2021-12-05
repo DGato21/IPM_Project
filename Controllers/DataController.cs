@@ -1,6 +1,8 @@
 ﻿using IPM_Project.Models;
 using IPM_Project.Models.Entities;
+using IPM_Project.Models.Helper;
 using IPM_Project.Models.SpecificViewModels;
+using Microsoft.AspNetCore.Http.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +14,14 @@ namespace IPM_Project.Controllers
     public class DataController : Controller
     {
         private DataManagement data;
+        private LoginManagement loginManager;
 
         public DataController()
         {
+            
             data = new DataManagement();
+            this.loginManager = new LoginManagement();
+            ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
         }
 
         // GET: Data
@@ -56,7 +62,7 @@ namespace IPM_Project.Controllers
             foreach(Dog d in dogs)
             {
                 subList.Add(d);
-                if (i == AdoptViewModel.DOGS_PER_ROW)
+                if (i == AdoptViewModel.DOGS_PER_ROW || i == dogs.Count)
                 {
                     //Add the Dog List & Clear Vars
                     i = 1;

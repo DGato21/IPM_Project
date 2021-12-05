@@ -22,21 +22,27 @@ namespace IPM_Project.Models
         private const string FORMS_FOLDER = "Forms";
         //Logos
         private const string LOGOS_FOLDER = "Logos";
+        //Profiles
+        private const string PROFILES_FOLDER = "Profiles";
 
-        private string mainDir;
+        private string mainUrl;
 
         //Main App Variables (Static Loading for Now)
         private List<Dog> dogList { get; set; } 
+        private List<Profile> profileList { get; set; } 
         private Feed feed { get; set; }
 
         public DataManagement()
         {
-            this.mainDir = System.Web.Hosting.HostingEnvironment.MapPath("~");
+            this.mainUrl = HttpRuntime.AppDomainAppPath;
+
             this.dogList = new List<Dog>();
+            this.profileList = new List<Profile>();
             this.feed = new Feed();
         }
 
-        #region Dogs Endpoints
+
+        #region Dogs Endpoints + Auxiliar Methods
 
         public List<Dog> GetAllDogs()
         {
@@ -102,20 +108,6 @@ namespace IPM_Project.Models
                         }
                         break;
 
-                    case "COLOUR1":
-                        if (!string.IsNullOrEmpty(f.Value))
-                        {
-                            filteredDog = filteredDog.Where(x => x.Colour1.Equals(f.Value, StringComparison.InvariantCultureIgnoreCase)).ToList();
-                        }
-                        break;
-
-                    case "COLOUR2":
-                        if (!string.IsNullOrEmpty(f.Value))
-                        {
-                            filteredDog = filteredDog.Where(x => x.Colour2.Equals(f.Value, StringComparison.InvariantCultureIgnoreCase)).ToList();
-                        }
-                        break;
-
                     case "FUR":
                         if (!string.IsNullOrEmpty(f.Value))
                         {
@@ -147,27 +139,69 @@ namespace IPM_Project.Models
                 return tmpDogs[0];
         }
 
-        public void LikeDog(int dogId, int profileId)
+        public void LikeDog(int dogId, Profile user)
         {
             Dog dog = GetDogById(dogId);
 
-            dog.addLike();
+            dog.addLike(user);
 
             //TODO THE PART OF THE PROFILE
             _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
         }
 
-        private void SponsorDog(int dogId, int profileId)
+        public void FollowDog(int dogId, Profile user)
         {
             Dog dog = GetDogById(dogId);
 
-            //dog.sponsorDog(profileId);
+            dog.addFollow(user);
+            user.addFollowing(dog);
 
             //TODO THE PART OF THE PROFILE
             _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
+            _saveJson(JsonConvert.SerializeObject(user), user.dbLocation);
+        }
+
+        public void UnfollowDog(int dogId, Profile user)
+        {
+            Dog dog = GetDogById(dogId);
+
+            dog.removeFollow(user);
+            user.removeFollowing(dog);
+
+            //TODO THE PART OF THE PROFILE
+            _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
+            _saveJson(JsonConvert.SerializeObject(user), user.dbLocation);
+        }
+
+        public void SponsorDog(int dogId, Profile user)
+        {
+            Dog dog = GetDogById(dogId);
+
+            dog.addSponsor(user);
+            user.addSponsoringDog(dog);
+
+            // TODO THE PART OF THE PROFILE
+            _saveJson(JsonConvert.SerializeObject(dog), dog.dbLocation);
+            _saveJson(JsonConvert.SerializeObject(user), user.dbLocation);
         }
 
         //IDEIA: WHEN ADOPT, POST A NEWS
+
+        #endregion
+
+        #region Profile Endpoints
+
+        public Profile GetProfileById(string userId)
+        {
+            _loadAllUsers();
+            Profile profile = null;
+
+            var tmp = this.profileList.Where(x => x.Username.Equals(userId, StringComparison.InvariantCultureIgnoreCase));
+            if (tmp != null && tmp.Count() > 0)
+                profile = tmp.First();
+
+            return profile;
+        }
 
         #endregion
 
@@ -180,11 +214,29 @@ namespace IPM_Project.Models
             return this.feed;
         }
 
+        public Feed GetUserFeed(Profile user)
+        {
+            Feed userFeed = new Feed();
+
+            try
+            {
+                foreach (int dogId in user.Following)
+                {
+                    Dog currentDog = GetDogById(dogId);
+
+                    userFeed.feedNews.AddRange(currentDog.Feed);
+                }
+            }
+            catch (Exception ex) {}
+
+            return userFeed;
+        }
+
         #endregion
 
         #region Form Endpoints
 
-        public void SubmitForm(FormCollection form, string formType, int? dogId = null)
+        public void SubmitForm(FormCollection form, string formType, Profile user, int? dogId = null)
         {
             Dictionary<string, object> formDic = _convertFormToDic(form);
 
@@ -192,17 +244,18 @@ namespace IPM_Project.Models
 
             string now = DateTime.Now.ToString("yyyy-MM-dd_hh:mm:ss:ffff");
 
+            _executeFormActions(formType, dogId, user);
+
             //TODO: O SAVE NAO ESTA A FUNCIONAR POR CAUSA DE CAMINHO INVALIDO
 
-            string fileName = $"{formType.ToUpperInvariant()}_{now}.json";
+            string fileName = $"{formType}_{DateTime.Now.Ticks}.json";
             string path = $"{DB_MAINFOLDER}\\{FORMS_FOLDER}\\{fileName}";
-            string finalPath = Path.Combine(mainDir, path);
 
-            _saveJson(json, finalPath);
+            _saveJson(json, path);
         }
 
         //TO FINISH
-        private void _executeFormActions(string formType, int? dogId)
+        private void _executeFormActions(string formType, int? dogId, Profile user)
         {
             //TODO_DR - Finish actions for each form
             /*
@@ -213,6 +266,8 @@ namespace IPM_Project.Models
                 case "AdoptDog":
                     break;
                 case "SponsorDog":
+                    if (dogId != null)
+                        SponsorDog((int)dogId, user);
                     break;
                 default:
                     break;
@@ -223,12 +278,13 @@ namespace IPM_Project.Models
 
         #region Static Info Load
 
-        //TODO: IMPROVE ITERATIONS: BIPART IN 2 METHODs
         private void _loadStaticDogList()
         {
+            string pathDir = $"{mainUrl}\\{ DB_MAINFOLDER}\\{DOGS_FOLDER}";
+
             //Directory Info
-            List<string> dirs = Directory.GetDirectories($"{mainDir}\\{DB_MAINFOLDER}\\{DOGS_FOLDER}", 
-                                                          "*", SearchOption.AllDirectories).ToList();
+            List<string> dirs = Directory.GetDirectories(pathDir, 
+                                                         "*", SearchOption.AllDirectories).ToList();
 
             foreach (string dir in dirs)
             {
@@ -236,7 +292,7 @@ namespace IPM_Project.Models
                 string category = string.Empty;
                 string sex = string.Empty;
 
-                string mainSubString = dir.Replace(mainDir, "").Replace($"\\{DB_MAINFOLDER}", "").Replace($"\\{DOGS_FOLDER}\\", "");
+                string mainSubString = dir.Replace(mainUrl, "").Replace($"\\{DB_MAINFOLDER}", "").Replace($"\\{DOGS_FOLDER}\\", "");
 
                 string[] strSplit = mainSubString.Split('\\');
 
@@ -249,20 +305,23 @@ namespace IPM_Project.Models
 
                     //Get the Photos
                     List<string> dogDir = Directory.GetFiles(dir, "*.json", SearchOption.AllDirectories).ToList();
+                    //If no Json configured, ignore and proceed
+                    if (dogDir.Count == 0)
+                        continue;
                     foreach (string dogInfo in dogDir)
                     {
                         using (StreamReader sr = new StreamReader(dogInfo))
                         {
                             string json = sr.ReadToEnd();
                             dog = JsonConvert.DeserializeObject<Dog>(json);
-                            dog.dbLocation = dogInfo;
+                            dog.dbLocation = _getRelativePath(dogInfo);
                         }
                     }
 
                     //Get the Photos
                     List<string> photosDir = Directory.GetFiles(dir, "*.jpg", SearchOption.AllDirectories).ToList();
                     foreach (string photo in photosDir)
-                        dog.Figures.Add(photo.Replace($"{mainDir}\\", ""));
+                        dog.Figures.Add(_getRelativePath(photo));
 
                     this.dogList.Add(dog);
                 }
@@ -271,7 +330,7 @@ namespace IPM_Project.Models
 
         private void _loadGeneralFeed()
         {
-            string dir = $"{mainDir}\\{DB_MAINFOLDER}\\{FEED_MAIN_FOLDER}";
+            string dir = $"{mainUrl}\\{ DB_MAINFOLDER}\\{FEED_MAIN_FOLDER}";
 
             //Get the Photos
             List<string> generalFeedDir = Directory.GetFiles(dir, "*.json", SearchOption.AllDirectories).ToList();
@@ -289,20 +348,49 @@ namespace IPM_Project.Models
             }
         }
 
-        private void _loadUserFeed(string userId)
+        private void _loadAllUsers()
         {
             //Directory Info
-            List<string> dirs = Directory.GetDirectories($"{mainDir}\\{DB_MAINFOLDER}\\{FEED_GENERAL_FOLDER}",
-                                                          "*", SearchOption.AllDirectories).ToList();
+            string mainProfileDir = $"{mainUrl}\\{DB_MAINFOLDER}\\{PROFILES_FOLDER}";
+
+            Profile profile = null;
+            //Get the Photos
+            List<string> profilesDir = Directory.GetFiles(mainProfileDir, "*.json", SearchOption.AllDirectories).ToList();
+            foreach (string path in profilesDir)
+            {
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    string json = sr.ReadToEnd();
+                    profile = JsonConvert.DeserializeObject<Profile>(json);
+                    profile.dbLocation = _getRelativePath(path);
+                    this.profileList.Add(profile);
+                }
+            }
+
+        }
+
+        #endregion
+
+        #region Utilities Methods
+
+        private string _getRelativePath(string fullPath)
+        {
+            string relativePath = string.Empty;
+
+            relativePath = fullPath.Replace(this.mainUrl, "");
+            relativePath = relativePath.Substring(relativePath.IndexOf("\\")+1);
+
+            return relativePath;
         }
 
         #endregion
 
         #region Utilities DB Methods
 
-        private void _saveJson(string json, string path)
+        private void _saveJson(string json, string relativePath)
         {
-            FileInfo file = new FileInfo(path);
+            string finalPath = Path.Combine(this.mainUrl + relativePath);
+            FileInfo file = new FileInfo(finalPath);
 
             if (file.Exists)
             {
@@ -327,5 +415,6 @@ namespace IPM_Project.Models
         }
 
         #endregion
+    
     }
 }

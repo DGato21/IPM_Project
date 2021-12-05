@@ -20,5 +20,10 @@ namespace IPM_Project.Models.Helper
             return this.dataManager.GetGeneralFeed();
         }
 
+        public Feed GetUserFeed(Profile user)
+        {
+            return this.dataManager.GetUserFeed(user);
+        }
+
     }
 }

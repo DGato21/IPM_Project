@@ -4,62 +4,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<p class="h1">@ViewBag.Title.</p>
+<link rel="stylesheet" href="~/Style/Adopt.css">
+
+<p class="h1" style="text-align: center">Our Dogs</p>
+<p style="text-align: center">These are our dogs. It's for them that we put in all the work. Check them out and visit their personal pages if would like!</p>
+
+<hr />
 
 <div>
+
     @using (Html.BeginForm("SearchDogs", "Data", FormMethod.Post))
     {
-    <div class="form-group">
-
-        <div class="form-control">
-            @Html.Label("Name:")
-            @Html.TextBoxFor(m => m.modelDog.Name)
-        </div>
-
-        <br />
-
-        <div class="form-control">
-            @Html.Label("Category:")
-            @Html.DropDownListFor(m => m.modelDog.Category, new List<SelectListItem>()
-                {
-                    new SelectListItem{Text = "Big", Value = "BIG" },
-                    new SelectListItem{Text = "Medium", Value = "MEDIUM" },
-                    new SelectListItem{Text = "Small", Value = "SMALL" }
-                }, "Please Select Dog Size");
-       
-            @Html.Label("Gender:")
-            @Html.DropDownListFor(m => m.modelDog.Gender, new List<SelectListItem>()
-                {
-                    new SelectListItem{Text = "Male", Value = "MALE" },
-                    new SelectListItem{Text = "Female", Value = "FEMALE" },
-                }, "Please Select the Gender");
-        </div>
-
-        <br />
-
-        <div class="form-control">
-            @Html.Label("Colour 1:")
-            @Html.DropDownListFor(m => m.modelDog.Colour1, new List<SelectListItem>()
-                {
-                    new SelectListItem{Text = "Black", Value = "Black" },
-                    new SelectListItem{Text = "Brown", Value = "Brown" },
-                    new SelectListItem{Text = "White", Value = "White" },
-                    new SelectListItem{Text = "Red", Value = "Red" },
-                }, "Please Select the 1st Colour");
-       
-            @Html.Label("Colour 2:")
-            @Html.DropDownListFor(m => m.modelDog.Colour2, new List<SelectListItem>()
-                {
-                    new SelectListItem{Text = "Black", Value = "Black" },
-                    new SelectListItem{Text = "Brown", Value = "Brown" },
-                    new SelectListItem{Text = "White", Value = "White" },
-                    new SelectListItem{Text = "Red", Value = "Red" },
-                }, "Please Select the 2nd Colour");
-        </div>
-
+<div class="form-group">
+    <div style="text-align: center">
+        @Html.Label("Name:")
+        @Html.TextBoxFor(m => m.modelDog.Name)
+        &nbsp;&nbsp;&nbsp;
+        @Html.Label("Category:")
+        @Html.DropDownListFor(m => m.modelDog.Category, new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "Big", Value = "BIG" },
+                new SelectListItem{Text = "Medium", Value = "MEDIUM" },
+                new SelectListItem{Text = "Small", Value = "SMALL" }
+            }, "Please Select Dog Size")
+        &nbsp;&nbsp;&nbsp;
+        @Html.Label("Gender:")
+        @Html.DropDownListFor(m => m.modelDog.Gender, new List<SelectListItem>()
+            {
+                new SelectListItem{Text = "Male", Value = "MALE" },
+                new SelectListItem{Text = "Female", Value = "FEMALE" },
+            }, "Please Select the Gender")
     </div>
+    <br />
 
-        <button type="submit" class="btn btn-primary">Search</button>
+
+
+    <button type="submit" class="btn btn-primary" style="text-align: center; margin-left: 43%;position: absolute;">
+        Search
+    </button>
+</div>
+
     }
 </div>
 
@@ -70,46 +54,54 @@
     {
         foreach (IPM_Project.Models.Entities.Dog[] row in Model.searchDogs)
         {
+            <hr />
             <div class="row">
                 @if (row.Count() >= 1 && row[0] != null)
                 {
-                    <div id="DogCol0" class="col-md-4">
+                <div id="DogCol0" class="col-md-4">
+                    <figure class="figure">
                         <a href="@Url.Action("Dog", "Dogs", new { id = row[0].Id })">
-                            <img src="~/@row[0].Figures[0]" alt="@row[0].Name" 
-                                 class="rounded mx-auto d-block"  
-                                 width="200" height="200"/>
+                            <img src="~/@row[0].Figures.First()" alt="@row[0].Name"
+                                 class="figure-img img-fluid" />
                         </a>
                         <br />
                         @Html.Label(row[0].Name)
-                    </div>
+                    </figure>
+                    <br />
+                </div>
                 }
 
                 @if (row.Count() >= 2 && row[1] != null)
                 {
-                    <div id="DogCol1" class="col-md-4">
+                <div id="DogCol1" class="col-md-4">
+                    <figure class="figure">
                         <a href="@Url.Action("Dog", "Dogs", new { id = row[1].Id })">
-                            <img src="~/@row[1].Figures[0]" alt="@row[1].Name" 
-                                 class="rounded mx-auto d-block" 
-                                 width="200" height="200"/>
+                            <img src="~/@row[1].Figures.First()" alt="@row[1].Name"
+                                 class="figure-img img-fluid" />
                         </a>
                         <br />
                         @Html.Label(row[1].Name)
-                    </div>
+                    </figure>
+                    <br />
+                </div>
                 }
                 @if (row.Count() >= 3 && row[2] != null)
                 {
-                    <div id="DogCol2" class="col-md-4">
+                <div id="DogCol2" class="col-md-4">
+                    <figure class="figure">
                         <a href="@Url.Action("Dog", "Dogs", new { id = row[2].Id })">
-                            <img src="~/@row[2].Figures[0]" alt="@row[2].Name" 
-                                 class="rounded mx-auto d-block" 
-                                 width="200" height="200"/>
+                            <img src="~/@row[2].Figures.First()" alt="@row[2].Name"
+                                 class="figure-img img-fluid" />
                         </a>
                         <br />
                         @Html.Label(row[2].Name)
-                    </div>
+                    </figure>
+                    <br />
+                </div>
                 }
             </div>
         }
+    <br />
     }
     else
     {

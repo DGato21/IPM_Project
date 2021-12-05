@@ -1,5 +1,7 @@
 ﻿@model IPM_Project.Models.Entities.Feed
 
+<link rel="stylesheet" href="~/Style/Homepage.css">
+
 <div class="container-fluid" id="hotLinks">
     <div class="modal-body row" style="display: flex; min-height:300px">
         <div class="col-md-6" style="background-image: url('images/Dogs_Adopt_Background.jpeg');
@@ -8,12 +10,12 @@
                                      background-position: 58.33325% center;
                                      display: block;
                                      border-radius: 2%">
-            <container class="text-center">
+            <div id="HomePageButton">
                 <a href=@Url.Action("SearchDogs", "Data")
-                   class="btn btn-primary btn-lg text-center">
+                   class="btn btn-primary btn-lg">
                     Adopt Us &raquo;
                 </a>
-            </container>
+            </div>
         </div>
         <div class="col-md-6" style="background-image: url('images/People_HelpUs_Background.jpeg');
                                      background-size: cover;
@@ -21,12 +23,12 @@
                                      background-position: 58.33325% center;
                                      display: block;
                                      border-radius: 2%">
-            <container class="text-center">
+            <div id="HomePageButton">
                 <a href=@Url.Action("HelpUs", "Home")
                     class="btn btn-primary btn-lg">
                     Help Us &raquo;
                 </a>
-            </container>
+            </div>
         </div>
     </div>
 </div>
@@ -53,8 +55,6 @@
                     </div>
                     <br />
                     <div class="text-right">
-                        <small>Likes: @row.supporters.Count()</small>
-                        <br />
                         <small>@row.publishTime</small>
                     </div>
                     <br />

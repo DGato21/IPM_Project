@@ -11,31 +11,52 @@ namespace IPM_Project.Models.Entities
     {
         [JsonProperty("id")]
         public int Id { get; set; } = -1;
+
         [JsonProperty("name")]
         public string Name { get; set; }
+
         [JsonProperty("category")]
         public string Category { get; set; }
+
         [JsonProperty("gender")]
         public string Gender { get; set; }
+
         [JsonProperty("age")]
         public int Age { get; set; }
+
         [JsonProperty("breed")]
         public string Breed { get; set; }
-        [JsonProperty("colour1")]
-        public string Colour1 { get; set; }
-        [JsonProperty("colour2")]
-        public string Colour2 { get; set; }
+
         [JsonProperty("fur")]
         public string Fur { get; set; }
+
         [JsonProperty("location")]
         public string Location { get; set; }
 
-        [JsonProperty("timeInCaptivity")]
-        public string TimeInCaptivity { get; set; }
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [JsonProperty("ageYear")]
+        public int AgeYear { get; set; }
+
+        [JsonProperty("ageMonth")]
+        public int AgeMonth { get; set; }
+
+        [JsonProperty("timeInCaptivityYear")]
+        public int TimeInCaptivityYear { get; set; }
+
+        [JsonProperty("timeInCaptivityMonth")]
+        public int TimeInCaptivityMonth { get; set; }
 
         //Specific App Info
         [JsonProperty("likes")]
-        public int Likes { get; set; } = 0;
+        public HashSet<string> Likes { get; set; } = new HashSet<string>();
+
+        [JsonProperty("followers")]
+        public HashSet<string> Followers { get; set; } = new HashSet<string>();
+
+        [JsonProperty("sponsors")]
+        public HashSet<string> Sponsors { get; set; } = new HashSet<string>();
 
         [JsonProperty("isAdopted")]
         public bool isAdopted { get; set; } = false;
@@ -43,28 +64,27 @@ namespace IPM_Project.Models.Entities
         [JsonProperty("news")]
         public List<News> Feed { get; set; } = new List<News>();
 
-        public List<string> Figures { get; set; } = new List<string>();
+        public HashSet<string> Figures { get; set; } = new HashSet<string>();
 
         public string dbLocation { get; set; }
 
-        public Dog (int id, string name, string category, string gender, int age, int likes, bool isAdopted, 
-            string breed, string colour1, string colour2, string fur, string location, string TimeInCaptivity)
+        public Dog (int id, string name, string category, string gender, int age, bool isAdopted, 
+            string breed, string fur, string location)
         {
             this.Id = id;
             this.Name = name;
             this.Category = category;
             this.Gender = gender;
             this.Age = age;
-            this.Likes = likes;
             this.isAdopted = isAdopted;
-            this.Breed = Breed;
-            this.Colour1 = colour1;
-            this.Colour2 = colour2;
+            this.Breed = breed;
             this.Fur = fur;
             this.Location = location;
-            this.TimeInCaptivity = TimeInCaptivity;
 
-            this.Figures = new List<string>();
+            this.Likes = new HashSet<string>();
+            this.Followers = new HashSet<string>();
+            this.Sponsors = new HashSet<string>();
+            this.Figures = new HashSet<string>();
             this.Feed = new List<News>();
             this.dbLocation = null;
         }
@@ -76,19 +96,24 @@ namespace IPM_Project.Models.Entities
             this.Category = category;
             this.Gender = gender;
             //Default Info
-            this.Age = 0;
-            this.Likes = 0;
+            this.Age = -1;
             this.isAdopted = false;
 
+            this.TimeInCaptivityMonth = -1;
+            this.TimeInCaptivityYear = -1;
+
+            this.AgeMonth = -1;
+            this.AgeYear = -1;
+
             this.Breed = "undefined";
-            this.Colour1 = "undefined"; 
-            this.Colour2 = "undefined";
             this.Fur = "undefined";
 
             this.Location = "unknown";
-            this.TimeInCaptivity = "unknown";
 
-            this.Figures = new List<string>();
+            this.Likes = new HashSet<string>();
+            this.Followers = new HashSet<string>();
+            this.Sponsors = new HashSet<string>();
+            this.Figures = new HashSet<string>();
             this.Feed = new List<News>();
             this.dbLocation = null;
         }
@@ -99,9 +124,68 @@ namespace IPM_Project.Models.Entities
             this.dbLocation = null;
         }
     
-        public void addLike()
+        //Formats
+        public string ageStringFormat()
         {
-            this.Likes++;
+            string finalFormat = "Unknown";
+            if (this.AgeYear != -1)
+            {
+                finalFormat = $"{this.AgeYear} years";
+
+                if (this.AgeMonth > 0)
+                {
+                    finalFormat += " ( since ";
+                    finalFormat += new DateTime(DateTime.Today.Year - this.AgeYear, this.AgeMonth, 1).ToString("yyyy MMM");
+                    finalFormat += " )";
+                }
+            }
+
+            return finalFormat;
+        }
+
+        public string timeInCaptivityStringFormat()
+        {
+            string finalFormat = "Unknown";
+            if (this.TimeInCaptivityYear != -1)
+            {
+                finalFormat = $"{this.TimeInCaptivityYear} years";
+
+                if (this.TimeInCaptivityMonth > 0)
+                {
+                    finalFormat += " ( since ";
+                    finalFormat += new DateTime(DateTime.Today.Year - this.TimeInCaptivityYear, this.TimeInCaptivityMonth, 1).ToString("yyyy MMM");
+                    finalFormat += " )";
+                }
+            }
+
+            return finalFormat;
+        }
+
+        //Actions
+
+        public void addLike(Profile user)
+        {
+            this.Likes.Add(user.Username);
+        }
+
+        public void removeLike(Profile user)
+        {
+            this.Likes.Remove(user.Username);
+        }
+
+        public void addFollow(Profile user)
+        {
+            this.Followers.Add(user.Username);
+        }
+
+        public void removeFollow(Profile user)
+        {
+            this.Followers.Remove(user.Username);
+        }
+
+        public void addSponsor(Profile user)
+        {
+            this.Sponsors.Add(user.Username);
         }
     }
 }

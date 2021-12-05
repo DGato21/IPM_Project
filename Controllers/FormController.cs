@@ -1,5 +1,6 @@
 ﻿using IPM_Project.Models;
 using IPM_Project.Models.Entities;
+using IPM_Project.Models.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,13 @@ namespace IPM_Project.Controllers
     public class FormController : Controller
     {
         private DataManagement dataManager;
+        private LoginManagement loginManager;
+
+        public FormController()
+        {
+            this.loginManager = new LoginManagement();
+            ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
+        }
 
         // GET: Form
         public ActionResult Index()
@@ -26,6 +34,7 @@ namespace IPM_Project.Controllers
             {
                 //Load all the Dogs
                 dataManager = new DataManagement();
+    
 
                 Dog dog = dataManager.GetDogById(dogId);
 
@@ -45,6 +54,7 @@ namespace IPM_Project.Controllers
             {
                 //Load all the Dogs
                 dataManager = new DataManagement();
+    
 
                 Dog dog = dataManager.GetDogById(dogId);
 
@@ -92,8 +102,9 @@ namespace IPM_Project.Controllers
             try
             {
                 this.dataManager = new DataManagement();
+    
 
-                dataManager.SubmitForm(form, type);
+                dataManager.SubmitForm(form, type, loginManager.GetCurrentUser());
 
                 ViewBag.Title = $"Form {type} submited sucessfully";
 

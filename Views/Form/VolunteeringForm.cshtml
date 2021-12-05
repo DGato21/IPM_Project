@@ -3,60 +3,195 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link rel="stylesheet" href="~/Style/Forms.css">
+
 <h1 class="center-block; text-center">@ViewBag.Title</h1>
 
 @using (Html.BeginForm("ReceiveForm", "Form", new { type = "Volunteer" }, FormMethod.Post, null))
 {
-    <div class="form-group row">
-        <label for="fullName" class="col-4 col-form-label">Full Name</label>
-        <div class="col-8">
-            <input id="fullName" name="fullName" placeholder="Enter Full Name" type="text" class="form-control" required="required">
+    <!-- COMEÇA BASE-->
+
+    <div class="block" style="float:right; width: 40%">
+        <label for="nif">NIF</label>
+        <input id="nif" name="nif" placeholder="Enter your NIF" type="number" required="required">
+    </div>
+
+    <div class="block" style="float:left; width: 30%">
+        <label for="fullName">Full name</label>
+        <input id="fullName" name="fullName" placeholder="Enter your full name" type="text" required="required">
+    </div>
+
+    <div class="block">
+        <label for="birthdate">Birthdate</label>
+        <input id="birthdate" name="birthdate" placeholder="Enter your birthdate" type="date" required="required">
+    </div>
+
+    <div class="block">
+        <label for="profession">Profession</label>
+        <input id="profession" name="profession" placeholder="Enter your profession" type="text" required="required">
+    </div>
+
+    <div class="block">
+        <label for="address">Address</label>
+        <input id="address" name="address" placeholder="Enter your address" type="text" required="required">
+    </div>
+
+    <div class="block" style="float:left">
+        <label for="postalCode">Postal Code</label>
+        <input id="postalCode" name="postalCode" placeholder="XXXX-YYY" type="text" required="required">
+    </div>
+
+    <div class="block">
+        <label for="city">City</label>
+        <input id="city" name="city" placeholder="Enter your city" type="text" required="required">
+    </div>
+
+    <div class="block" style="float:left">
+        <label for="email">Email</label>
+        <input id="email" name="email" placeholder="Enter your email" type="email" required="required">
+    </div>
+
+    <div class="block">
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" placeholder="Enter your contact" type="tel" required="required">
+    </div>
+
+    <!-- ACABA BASE-->
+
+    <div class="block">
+        <label for="partnerNumber">Partner Number</label>
+        <input id="partnerNumber" name="partnerNumber" type="tel" placeholder="Enter your partner number">
+    </div>
+
+    <div class="block" style="margin:0 auto">
+
+
+        <p style="text-align:center">Please select your means of transport to the shelter:</p>
+
+        <!-- Para o radio type funcionar corretamente, o campo name tem que ser igual em todas as opções!-->
+
+        <div id="radioGroup" style="margin:auto ; text-align:center">
+
+            <div class="wrap">
+                <label for="ownVehicle">Own vehicle</label>
+                <input type="radio" name="transportationType" id="ownVehicle" value="OwnVehicle" />
+            </div>
+
+            <div class="wrap">
+                <label for="lift">Lift</label>
+                <input type="radio" name="transportationType" id="lift" value="Lift" />
+            </div>
+
+            <div class="wrap">
+                <label for="publicTransportation">Public Transportation</label>
+                <input type="radio" name="transportationType" id="publicTransportation" value="PublicTransportation" />
+            </div>
+
+            <div class="wrap">
+                <label for="afoot">Afoot</label>
+                <input type="radio" name="transportationType" id="afoot" value="Afoot" />
+
+            </div>
         </div>
-        <label for="birthdate" class="col-4 col-form-label">Birthdate</label>
-        <div class="col-8">
-            <input id="birthdate" name="birthdate" placeholder="Enter Birthdate" type="date" class="form-control" required="required">
+
+    </div>
+
+    <div class="block" style="margin:0 auto">
+
+
+        <p style="text-align:center">Please select the activities you want to collaborate in:</p>
+
+        <div id="radioGroup" style="margin:auto ; text-align:center">
+
+            <div class="wrap">
+                <label for="supportKennel">Support in the kennel</label>
+                <input type="checkbox" id="supportKennel" name="volunteerActivities" value="kennel">
+            </div>
+
+            <div class="wrap">
+                <label for="supportSite">Support in our site's content management</label>
+                <input type="checkbox" id="supportSite" name="volunteerActivities" value="site">
+            </div>
+
+            <div class="wrap">
+                <label for="THF">Temporary Host Family</label>
+                <input type="checkbox" id="THF" name="volunteerActivities" value="family">
+            </div>
+
+            <div class="wrap">
+                <label for="cleaningBoxes">Cleaning and maintenance of the dog's boxes'</label>
+                <input type="checkbox" id="cleaningBoxes" name="volunteerActivities" value="boxes">
+            </div>
+
+            <div class="wrap">
+                <label for="attendCampaigns">Attend to campaigns</label>
+                <input type="checkbox" id="attendCampaigns" name="volunteerActivities" value="campaigns">
+            </div>
+
+            <div class="wrap">
+                <label for="transportAnimal">Animal Transportation</label>
+                <input type="checkbox" id="transportAnimal" name="volunteerActivities" value="transport">
+            </div>
+
+            <div class="wrap">
+                <label for="professionalArea">Work in your professional area</label>
+                <input type="checkbox" id="professionalArea" name="volunteerActivities" value="professional">
+            </div>
+
         </div>
+
+    </div>
+
+    <div class="block" style="margin:0 auto">
+
+        <p style="text-align:center">Select which days you pretend to work at our shelter:</p>
+
+        <div id="radioGroup" style="margin:auto ; text-align:center">
+
+            <div class="wrap">
+                <label for="monday">Mondays</label>
+                <input type="checkbox" id="monday" name="volunteerDays" value="2">
+            </div>
+
+            <div class="wrap">
+                <label for="tuesday">Tuesdays</label>
+                <input type="checkbox" id="tuesday" name="volunteerDays" value="3">
+            </div>
+
+            <div class="wrap">
+                <label for="wednesday">Wednesdays</label>
+                <input type="checkbox" id="wednesday" name="volunteerDays" value="4">
+            </div>
+
+            <div class="wrap">
+                <label for="thursday">Thursdays</label>
+                <input type="checkbox" id="thursday" name="volunteerDays" value="5">
+            </div>
+
+            <div class="wrap">
+                <label for="friday">Fridays</label>
+                <input type="checkbox" id="friday" name="volunteerDays" value="6">
+            </div>
+
+            <div class="wrap">
+                <label for="saturday">Saturdays</label>
+                <input type="checkbox" id="saturday" name="volunteerDays" value="7">
+            </div>
+
+            <div class="wrap">
+                <label for="sunday">Sundays</label>
+                <input type="checkbox" id="sunday" name="volunteerDays" value="1">
+            </div>
+
+        </div>
+
+        <p style="text-align:center"> Our volunteer work schedule at the shelter ranges from 14h to 17h, occasionaly modified by exceptional events.</p>
+
     </div>
 
     <div class="form-group row">
-        <label for="profession" class="col-4 col-form-label">Profession</label>
-        <div class="col-8">
-            <input id="profession" name="profession" placeholder="Enter your Profession" type="text" class="form-control" required="required">
-        </div>
-        <label for="nif" class="col-4 col-form-label">NIF</label>
-        <div class="col-8">
-            <input id="nif" name="nif" placeholder="Enter your NIF" type="number" class="form-control">
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label for="email" class="col-4 col-form-label">Email</label>
-        <div class="col-8">
-            <input id="email" name="email" placeholder="Enter your Email" type="email" class="form-control" required="required">
-        </div>
-        <label for="phone" class="col-4 col-form-label">Phone</label>
-        <div class="col-8">
-            <input id="phone" name="phone" placeholder="Enter your Contact" type="tel" class="form-control" required="required">
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label for="address" class="col-4 col-form-label">Address</label>
-        <div class="col-8">
-            <input id="address" name="address" placeholder="Enter your Address" type="text" class="form-control" required="required">
-        </div>
-        <label for="postalCode" class="col-4 col-form-label">Postal Code</label>
-        <div class="col-8">
-            <input id="postalCode" name="postalCode" placeholder="XXXX-YYY" type="text" class="form-control" required="required">
-        </div>
-        <label for="city" class="col-4 col-form-label">City</label>
-        <div class="col-8">
-            <input id="city" name="city" placeholder="Enter your City" type="text" class="form-control" required="required">
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="offset-4 col-8">
+        <center>
             <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-        </div>
+        </center>
     </div>
 }

@@ -1,0 +1,31 @@
+﻿#presentationPage {
+    outline: 20px;
+    outline-width: 20px;
+    border-radius: 25px;
+    border: 2px solid #0089FF;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5%;
+}
+
+figure {
+    height: 250px;
+    text-align: center;
+}
+
+#dogPhoto {
+    height: auto;
+    width: 50%;
+    border-right: 1px solid #0089FF;
+}
+
+#dogInfo {
+    padding-left: 5%;
+    height: auto;
+    width: 50%;
+}

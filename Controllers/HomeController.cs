@@ -17,23 +17,30 @@ namespace IPM_Project.Controllers
     /// </summary>
     public class HomeController : Controller
     {
+        private LoginManagement loginManager;
         private FeedManagement feedManager;
+
+        public HomeController()
+        {      
+            this.loginManager = new LoginManagement();
+            ViewBag.Login = string.Format(LoginManagement.LOGIN_MESSAGE, loginManager.GetCurrentUser().Name);
+        }
 
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
 
             feedManager = new FeedManagement();
+            Feed mainFeed = new Feed();
             Feed feed = feedManager.GetGeneralFeed();
+            Feed userFeed = feedManager.GetUserFeed(this.loginManager.GetCurrentUser());
 
-            return View("Index", feed);
-        }
+            mainFeed.feedNews.AddRange(feed.feedNews);
+            mainFeed.feedNews.AddRange(userFeed.feedNews);
 
-        public ActionResult Stage1()
-        {
-            ViewBag.Title = "Stage 1 - Project Proposal";
+            mainFeed.feedNews = mainFeed.feedNews.OrderByDescending(x => x.publishTime).ToList();
 
-            return View();
+            return View("Index", mainFeed);
         }
 
         public ActionResult HelpUs()

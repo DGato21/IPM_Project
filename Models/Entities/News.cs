@@ -22,15 +22,15 @@ namespace IPM_Project.Models.Entities
         public DateTime publishTime { get; set; }
 
         [JsonProperty("readers")]
-        public List<Profile> readers { get; set; }
+        public HashSet<string> readers { get; set; } = new HashSet<string>();
 
-        [JsonProperty("supporters")]
-        public List<Profile> supporters { get; set; }
+        [JsonProperty("likes")]
+        public HashSet<string> likes { get; set; } = new HashSet<string>();
 
         //Specific Entity Info
 
         [JsonProperty("entity")]
-        public string specificEntity { get; set; } = null;
+        public object specificEntity { get; set; } = null;
 
         [JsonProperty("id")]
         public int entityId { get; set; } = -1;
@@ -39,15 +39,26 @@ namespace IPM_Project.Models.Entities
 
         public News()
         {
-            this.supporters = new List<Profile>();
-            this.readers = new List<Profile>();
+            this.likes = new HashSet<string>();
+            this.readers = new HashSet<string>();
             this.publishTime = new DateTime();
-            this.figure = @"images/dognews_default.jpg";
+            this.figure = "/images/dognews_default.jpg";
             this.news = "Loading...";
             this.title = "News Title Loading...";
 
             this.specificEntity = null;
             this.entityId = -1;
+        }
+
+        //Actions
+        public void addLike(Profile user)
+        {
+            this.likes.Add(user.Username);
+        }
+
+        public void removeLike(Profile user)
+        {
+            this.likes.Remove(user.Username);
         }
     }
 }
