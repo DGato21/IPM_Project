@@ -178,10 +178,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="0db\Dogs\BIG\FEMALE\INDIRA\9826.jpg" />
+    <Content Include="0db\Dogs\BIG\FEMALE\INDIRA\0_Indira.jpg" />
     <Content Include="0db\Dogs\BIG\FEMALE\INDIRA\9826_2.jpg" />
     <Content Include="0db\Dogs\BIG\FEMALE\INDIRA\9826_3.jpg" />
-    <Content Include="0db\Dogs\BIG\FEMALE\LIBERTY\12807.jpg" />
+    <Content Include="0db\Dogs\BIG\FEMALE\LIBERTY\0_Liberty.jpg" />
     <Content Include="0db\Dogs\BIG\FEMALE\LIBERTY\12807_2.jpg" />
     <Content Include="0db\Dogs\BIG\FEMALE\LIBERTY\12807_3.jpg" />
     <Content Include="0db\Dogs\BIG\FEMALE\LUA MARIA\15969.jpg" />
@@ -197,10 +197,10 @@
     <Content Include="0db\Dogs\BIG\FEMALE\PIPOCA\14434.jpg" />
     <Content Include="0db\Dogs\BIG\FEMALE\PIPOCA\14434_2.jpg" />
     <Content Include="0db\Dogs\BIG\FEMALE\PIPOCA\14434_3.jpg" />
-    <Content Include="0db\Dogs\BIG\MALE\FIDEL\9749.jpg" />
+    <Content Include="0db\Dogs\BIG\MALE\FIDEL\0_Fidel.jpg" />
     <Content Include="0db\Dogs\BIG\MALE\FIDEL\9749_2.jpg" />
     <Content Include="0db\Dogs\BIG\MALE\FIDEL\9749_3.jpg" />
-    <Content Include="0db\Dogs\BIG\MALE\LAMPEJO\15772.jpg" />
+    <Content Include="0db\Dogs\BIG\MALE\LAMPEJO\0_Lampejo.jpg" />
     <Content Include="0db\Dogs\BIG\MALE\LAMPEJO\15772_2.jpg" />
     <Content Include="0db\Dogs\BIG\MALE\LAMPEJO\15772_3.jpg" />
     <Content Include="0db\Dogs\BIG\MALE\NICK\7593.jpg" />
@@ -222,10 +222,10 @@
     <Content Include="0db\Dogs\BIG\MALE\SULTÃO\9821.jpg" />
     <Content Include="0db\Dogs\BIG\MALE\SULTÃO\9821_2.jpg" />
     <Content Include="0db\Dogs\BIG\MALE\SULTÃO\9821_3.jpg" />
-    <Content Include="0db\Dogs\MEDIUM\FEMALE\CHICA BELLA\15578.jpg" />
+    <Content Include="0db\Dogs\MEDIUM\FEMALE\CHICA BELLA\0_Cicha_Bella.jpg" />
     <Content Include="0db\Dogs\MEDIUM\FEMALE\CHICA BELLA\15578_2.jpg" />
     <Content Include="0db\Dogs\MEDIUM\FEMALE\CHICA BELLA\15578_3.jpg" />
-    <Content Include="0db\Dogs\MEDIUM\FEMALE\DORY\15312.jpg" />
+    <Content Include="0db\Dogs\MEDIUM\FEMALE\DORY\0_Dory.jpg" />
     <Content Include="0db\Dogs\MEDIUM\FEMALE\DORY\15312_2.jpg" />
     <Content Include="0db\Dogs\MEDIUM\FEMALE\DORY\15312_3.jpg" />
     <Content Include="0db\Dogs\MEDIUM\FEMALE\KISSA\15306.jpg" />
@@ -246,10 +246,10 @@
     <Content Include="0db\Dogs\MEDIUM\FEMALE\TESSA\15955.jpg" />
     <Content Include="0db\Dogs\MEDIUM\FEMALE\TESSA\15955_2.jpg" />
     <Content Include="0db\Dogs\MEDIUM\FEMALE\TESSA\15955_3.jpg" />
-    <Content Include="0db\Dogs\MEDIUM\MALE\BOB\15307.jpg" />
+    <Content Include="0db\Dogs\MEDIUM\MALE\BOB\0_Bob.jpg" />
     <Content Include="0db\Dogs\MEDIUM\MALE\BOB\15307_2.jpg" />
     <Content Include="0db\Dogs\MEDIUM\MALE\BOB\15307_3.jpg" />
-    <Content Include="0db\Dogs\MEDIUM\MALE\BOLERO\13928.jpg" />
+    <Content Include="0db\Dogs\MEDIUM\MALE\BOLERO\0_Bolero.jpg" />
     <Content Include="0db\Dogs\MEDIUM\MALE\BOLERO\13928_2.jpg" />
     <Content Include="0db\Dogs\MEDIUM\MALE\BOLERO\13928_3.jpg" />
     <Content Include="0db\Dogs\MEDIUM\MALE\BRAQUE\14738.jpg" />
@@ -273,10 +273,10 @@
     <Content Include="0db\Dogs\MEDIUM\MALE\SULTAO\14436.jpg" />
     <Content Include="0db\Dogs\MEDIUM\MALE\SULTAO\14436_2.jpg" />
     <Content Include="0db\Dogs\MEDIUM\MALE\SULTAO\14436_3.jpg" />
-    <Content Include="0db\Dogs\SMALL\FEMALE\FRAMBOESA\15125.jpg" />
+    <Content Include="0db\Dogs\SMALL\FEMALE\FRAMBOESA\0_Framboesa.jpg" />
     <Content Include="0db\Dogs\SMALL\FEMALE\FRAMBOESA\15125_2.jpg" />
     <Content Include="0db\Dogs\SMALL\FEMALE\FRAMBOESA\15125_3.jpg" />
-    <Content Include="0db\Dogs\SMALL\FEMALE\FUFU\14376.jpg" />
+    <Content Include="0db\Dogs\SMALL\FEMALE\FUFU\0_Fufu.jpg" />
     <Content Include="0db\Dogs\SMALL\FEMALE\FUFU\14376_2.jpg" />
     <Content Include="0db\Dogs\SMALL\FEMALE\FUFU\14376_3.jpg" />
     <Content Include="0db\Dogs\SMALL\FEMALE\GABI\14627.jpg" />
@@ -300,10 +300,10 @@
     <Content Include="0db\Dogs\SMALL\FEMALE\TORI\15920.jpg" />
     <Content Include="0db\Dogs\SMALL\FEMALE\TORI\15920_2.jpg" />
     <Content Include="0db\Dogs\SMALL\FEMALE\TORI\15920_3.jpg" />
-    <Content Include="0db\Dogs\SMALL\MALE\ANTONIO\15993.jpg" />
+    <Content Include="0db\Dogs\SMALL\MALE\ANTONIO\0_António.jpg" />
     <Content Include="0db\Dogs\SMALL\MALE\ANTONIO\15993_2.jpg" />
     <Content Include="0db\Dogs\SMALL\MALE\ANTONIO\15993_3.jpg" />
-    <Content Include="0db\Dogs\SMALL\MALE\APPLE\15749.jpg" />
+    <Content Include="0db\Dogs\SMALL\MALE\APPLE\0_Apple.jpg" />
     <Content Include="0db\Dogs\SMALL\MALE\APPLE\15749_2.jpg" />
     <Content Include="0db\Dogs\SMALL\MALE\APPLE\15749_3.jpg" />
     <Content Include="0db\Dogs\SMALL\MALE\BONECO\14377.jpg" />

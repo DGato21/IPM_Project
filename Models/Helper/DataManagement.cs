@@ -320,6 +320,7 @@ namespace IPM_Project.Models
 
                     //Get the Photos
                     List<string> photosDir = Directory.GetFiles(dir, "*.jpg", SearchOption.AllDirectories).ToList();
+                    dog.Figures.Clear(); //Clear Photos first do to a reset
                     foreach (string photo in photosDir)
                         dog.Figures.Add(_getRelativePath(photo));
 
