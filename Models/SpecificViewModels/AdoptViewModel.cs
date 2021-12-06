@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace IPM_Project.Models.SpecificViewModels
 {
@@ -12,5 +13,10 @@ namespace IPM_Project.Models.SpecificViewModels
 
         public Dog modelDog { get; set; }
         public List<Dog[]> searchDogs { get; set; }
+
+        //List Parameters
+        public IEnumerable<SelectListItem> _categories { get; set; }
+        public IEnumerable<SelectListItem> _gender { get; set; }
+        public string _searchName { get; set; }
     }
 }

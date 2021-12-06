@@ -14,13 +14,13 @@ img {
 }
 
 figure {
-    height: 250px;
+    height: auto;
     text-align: center;
 }
 
 #dogPhoto {
     height: auto;
-    width: 50%;
+    width: auto;
     border-right: 1px solid #0089FF;
 }
 

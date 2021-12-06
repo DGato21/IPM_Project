@@ -18,22 +18,14 @@
 <div class="form-group">
     <div style="text-align: center">
         @Html.Label("Name:")
-        @Html.TextBoxFor(m => m.modelDog.Name)
+        @Html.TextBoxFor(x=> x.modelDog.Name, new { Value = ViewData.Model._searchName})
         &nbsp;&nbsp;&nbsp;
         @Html.Label("Category:")
-        @Html.DropDownListFor(m => m.modelDog.Category, new List<SelectListItem>()
-            {
-                new SelectListItem{Text = "Big", Value = "BIG" },
-                new SelectListItem{Text = "Medium", Value = "MEDIUM" },
-                new SelectListItem{Text = "Small", Value = "SMALL" }
-            }, "Please Select Dog Size")
+        @Html.DropDownListFor(x => x.modelDog.Category, Model._categories, optionLabel: "")
+
         &nbsp;&nbsp;&nbsp;
         @Html.Label("Gender:")
-        @Html.DropDownListFor(m => m.modelDog.Gender, new List<SelectListItem>()
-            {
-                new SelectListItem{Text = "Male", Value = "MALE" },
-                new SelectListItem{Text = "Female", Value = "FEMALE" },
-            }, "Please Select the Gender")
+        @Html.DropDownListFor(x => x.modelDog.Gender, Model._gender, optionLabel: "")
     </div>
     <br />
 

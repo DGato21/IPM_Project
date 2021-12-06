@@ -72,8 +72,53 @@ namespace IPM_Project.Controllers
                 else
                     i++;
             }
-                
+
+            _setViewVariables(adoptViewModel, collection);
+
             return View("Adopt", adoptViewModel);
         }
+
+        private void _setViewVariables(AdoptViewModel viewModel, FormCollection collection = null)
+        {
+            //Define Default Options
+            viewModel._categories = new List<SelectListItem>() {
+                new SelectListItem{Text = "Big", Value = "BIG" },
+                new SelectListItem{Text = "Medium", Value = "MEDIUM" },
+                new SelectListItem{Text = "Small", Value = "SMALL" }
+            };
+
+            viewModel._gender = new List<SelectListItem>() {
+                new SelectListItem{Text = "Male", Value = "MALE" },
+                new SelectListItem{Text = "Female", Value = "FEMALE" },
+            };
+
+            viewModel._searchName = null;
+
+            //Define Parameters
+            if (!(
+                collection == null || collection.AllKeys == null || collection.AllKeys.Count() == 0))
+            {
+                if (collection.AllKeys.Contains("modelDog.Category", StringComparer.InvariantCultureIgnoreCase))
+                {
+                    var select = viewModel._categories.
+                                    Where(x => x.Value.Equals(collection["modelDog.Category"], StringComparison.InvariantCultureIgnoreCase));
+                    if (select != null && select.Count() > 0)
+                        select.First().Selected = true;
+                }
+                if (collection.AllKeys.Contains("modelDog.Gender", StringComparer.InvariantCultureIgnoreCase))
+                {
+                    var select = viewModel._gender.
+                                  Where(x => x.Value.Equals(collection["modelDog.Gender"], StringComparison.InvariantCultureIgnoreCase));
+                    if (select != null && select.Count() > 0)
+                        select.First().Selected = true;
+                }   
+                if (collection.AllKeys.Contains("modelDog.Name", StringComparer.InvariantCultureIgnoreCase))
+                    viewModel._searchName = collection["modelDog.Name"];
+            }
+
+
+        }
+
+        //USEFUL LINK: https://stackoverflow.com/questions/6807256/dropdownlist-set-selected-value-in-mvc3-razor
     }
 }
