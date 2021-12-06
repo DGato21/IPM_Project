@@ -1,8 +1,10 @@
-﻿#HomePageButton{
+﻿HomePageButton {
     text-align: center;
     text-decoration-color: black;
     border-block-color: black;
-    background-color: transparent;
+    background-color: indianred;
     padding-bottom: 25px;
     color: black;
+    float: right;
+    margin-top: 250px
 }
