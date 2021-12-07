@@ -106,15 +106,15 @@ namespace IPM_Project.Controllers
 
                 dataManager.SubmitForm(form, type, loginManager.GetCurrentUser());
 
-                ViewBag.Title = $"Form {type} submited sucessfully";
+                ViewBag.Title = $"Form {type} submitted successfully";
 
-                ViewBag.Message = $"We are now going to analize your submission and will responde to your request as soon as possible.";
+                ViewBag.Message = $"We are now going to analize your submission and will answer to your request as soon as possible.";
 
                 return View("ResponseForm");
             }
             catch(Exception ex)
             {
-                ViewBag.Title = $"Something Wrong! Form {type} not submited.";
+                ViewBag.Title = $"Something went wrong! Form {type} not submitted.";
 
                 ViewBag.Message = $"Error: {ex.Message}.";
 
