@@ -382,7 +382,9 @@
     <Content Include="0db\Dogs\SMALL\FEMALE\FUFU\Fufu.json" />
     <Content Include="0db\Dogs\SMALL\MALE\ANTONIO\António.json" />
     <Content Include="0db\Dogs\SMALL\MALE\APPLE\Apple.json" />
+    <None Include="Properties\PublishProfiles\IPMProject - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\IPMProject - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\IPMProject - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
