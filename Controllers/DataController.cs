@@ -57,20 +57,23 @@ namespace IPM_Project.Controllers
             adoptViewModel.searchDogs = new List<Dog[]>();
 
             //Add the List
-            List<Dog> subList = new List<Dog>(AdoptViewModel.DOGS_PER_ROW);
-            int i = 1;
-            foreach(Dog d in dogs)
+            if (dogs != null && dogs.Count > 0)
             {
-                subList.Add(d);
-                if (i == AdoptViewModel.DOGS_PER_ROW || i == dogs.Count)
+                List<Dog> subList = new List<Dog>(AdoptViewModel.DOGS_PER_ROW);
+                int i = 1;
+                foreach (Dog d in dogs)
                 {
-                    //Add the Dog List & Clear Vars
-                    i = 1;
-                    adoptViewModel.searchDogs.Add(subList.ToArray());
-                    subList = new List<Dog>(AdoptViewModel.DOGS_PER_ROW);
+                    subList.Add(d);
+                    if (i == AdoptViewModel.DOGS_PER_ROW || i == dogs.Count)
+                    {
+                        //Add the Dog List & Clear Vars
+                        i = 1;
+                        adoptViewModel.searchDogs.Add(subList.ToArray());
+                        subList = new List<Dog>(AdoptViewModel.DOGS_PER_ROW);
+                    }
+                    else
+                        i++;
                 }
-                else
-                    i++;
             }
 
             _setViewVariables(adoptViewModel, collection);

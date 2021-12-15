@@ -60,45 +60,55 @@
         <div class="col-md-6" id="dogInfo">
             <div class="form-group row">
                 <label for="Breed" class="col-4 col-form-label">Breed</label>
-                <input readonly id="breed" name="breed" type="text" class="form-control" value="@Model.Breed">
+                <br />
+                <fieldset class="">@Model.Breed</fieldset>
             </div>
 
             <div class="form-group row">
                 <label for="Age" class="col-4 col-form-label">Age</label>
-                <input readonly id="age" name="age" type="text" class="form-control" value="@Model.ageStringFormat()">
+                <br />
+                <fieldset class="">@Model.ageStringFormat()</fieldset>
             </div>
 
             <div class="form-group row">
                 <label for="Sex" class="col-4 col-form-label">Sex</label>
-                <input readonly id="sex" name="sex" type="text" class="form-control" value="@Model.Gender">
+                <br />
+                <fieldset class="">@Model.Gender</fieldset>
             </div>
 
             <div class="form-group row">
                 <label for="Size" class="col-4 col-form-label">Size</label>
-                <input readonly id="size" name="size" type="text" class="form-control" value="@Model.Category">
+                <br />
+                <fieldset class="">@Model.Category</fieldset>
             </div>
 
             <div class="form-group row">
                 <label for="Fur" class="col-4 col-form-label">Fur</label>
-                <input readonly id="fur" name="fur" type="text" class="form-control" value="@Model.Fur">
+                <br />
+                <fieldset class="">@Model.Fur</fieldset>
             </div>
 
             <div class="form-group row">
                 <label for="Location" class="col-4 col-form-label">Location</label>
-                <input readonly id="location" name="location" type="text" class="form-control" value="@Model.Location">
+                <br />
+                <fieldset class="">@Model.Location</fieldset>
             </div>
 
             <div class="form-group row">
                 <label for="TimeInCaptivity" class="col-4 col-form-label">Time In Captivity</label>
-                <input readonly id="timeInCaptivity" name="timeInCaptivity" type="text" class="form-control"
-                       value="@Model.timeInCaptivityStringFormat()">
+                <br />
+                <fieldset class="">@Model.timeInCaptivityStringFormat()</fieldset>
             </div>
+
+            <br />
 
             <div class="text-center">
                 <a href=@Url.Action("AdoptDogForm", "Form", new { dogId = Model.Id, dogName = Model.Name })
                    class="btn btn-primary btn-lg">
                     Adopt &raquo;
                 </a>
+                &nbsp;
+                &ensp;
                 <a href=@Url.Action("SponsorDogForm", "Form", new { dogId = Model.Id, dogName = Model.Name })
                    class="btn btn-primary btn-lg">
                     Sponsor &raquo;
